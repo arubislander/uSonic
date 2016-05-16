@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=uSonic
+Comment=My project description
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
+
+
