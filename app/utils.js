@@ -36,6 +36,19 @@ function get_token(password, salt) {
     return token;
 }
 
+function get_coverart_url(appcode, target_api_version, basepath,
+                          username, token, salt, coverart_id,size) {
+    var url = basepath + "/getCoverArt.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+            + "&id=" + coverart_id
+            + "&size=" + size;
+    console.debug("url:", url)
+    return url;
+}
+
 function get_ping_url(appcode, target_api_version, basepath,
                       username, token, salt) {
     var url = basepath + "/ping.view?c=" + appcode

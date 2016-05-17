@@ -1,6 +1,6 @@
 {
     "name": "@APP_ID@",
-    "description": "description of uSonic",
+    "description": "Ubuntu client for Subsonic music server.",
     "architecture": "@CLICK_ARCH@",
     "title": "@APP_NAME@",
     "hooks": {

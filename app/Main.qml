@@ -2,6 +2,8 @@ import QtQuick 2.4
 import QtMultimedia 5.4
 import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
+import Ubuntu.Thumbnailer 0.1
+
 import "utils.js" as Utils
 
 /*!
@@ -117,6 +119,7 @@ MainView {
                     XmlRole { name: "title"; query: "@title/string()" }
                     XmlRole { name: "album"; query: "@album/string()" }
                     XmlRole { name: "artist"; query: "@artist/string()" }
+                    XmlRole { name: "coverArt"; query: "@coverArt/string()" }
                 }
                 // let refresh control know when the refresh gets completed
                 pullToRefresh {
@@ -128,7 +131,28 @@ MainView {
                 }
                 delegate: ListItem {
                     ListItemLayout {
+                        id: layout
                         title.text: model.title
+                        subtitle.text: model.artist + " - " + model.album
+                        Shape {
+                            height: units.gu(5)
+                            width : height
+                            SlotsLayout.position: SlotsLayout.Leading
+                            children: [Image {
+                                id: imgListItem
+                                anchors.fill: parent
+                                source: Utils.get_coverart_url(client.appcode,
+                                                               client.api_version,
+                                                               client.serverUrl,
+                                                               client.username,
+                                                               client.token,
+                                                               client.salt,
+                                                               model.coverArt,
+                                                               imgListItem.height)
+//                                source:"image://albumart/album="+model.album.replace(/\s/g,"+")
+//                                       +"&artist=" + model.artist.replace(/\s/g,"+")
+                            }]
+                        }
                     }
                     onClicked: {
                         var url = Utils.get_stream_Url(client.appcode,
@@ -231,7 +255,7 @@ MainView {
                  actions: [
                      Action {
                          id: pingAction
-                         name: "pingActin"
+                         name: "pingAction"
                          text: "Test"
                          onTriggered: {
                              testClient.password = txtPassword.text
