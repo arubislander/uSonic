@@ -35,6 +35,17 @@ MainView {
         id: player
     }
 
+    ActionList {
+        id: backActionList
+        actions: [
+            Action {
+                iconName: "back"
+                text: i18n.tr("Back")
+                onTriggered: pageStack.pop()
+            }
+        ]
+    }
+
     PageStack {
         id: pageStack
         currentPage: mainPage
@@ -82,6 +93,8 @@ MainView {
                         verticalAlignment: Text.AlignBottom
                         action: searchAction
                 }
+
+                leadingActionBar.actions: backActionList.actions
 
                 trailingActionBar {
                     actions: [
@@ -177,6 +190,7 @@ MainView {
              header : PageHeader {
                  id: settingsPageHeader
                  title: i18n.tr("uSonic Settings")
+                 leadingActionBar.actions:backActionList.actions
              }
 
 
