@@ -34,7 +34,7 @@ set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 option(INSTALL_TESTS "Install the tests on make install" on)
 
 set(APP_NAME          uSonic)
-set(APP_ID            "nl.arubislander.usonic")
+set(APP_ID            "usonic.arubislander")
 set(USONIC_DIR        "share/qml/uSonic")
 set(MAIN_QML          "Main.qml")
 set(ICON              "graphics/uSonic.png")

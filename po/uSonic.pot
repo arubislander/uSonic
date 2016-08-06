@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-06 20:18+0200\n"
+"POT-Creation-Date: 2016-06-02 23:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/Main.qml:49
+#: app/Main.qml:43
 msgid "Back"
 msgstr ""
 
-#: ../app/Main.qml:71
-#: /home/arubislander/Projects/touch/build-uSonic-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/uSonic.desktop.in.h:1
+#: app/Main.qml:58
 msgid "uSonic"
 msgstr ""
 
-#: ../app/Main.qml:77 ../app/Main.qml:161
-msgid "Search"
-msgstr ""
-
-#: ../app/Main.qml:83
-msgid "Clear"
-msgstr ""
-
-#: ../app/Main.qml:93
+#: app/Main.qml:64
 msgid "Settings"
 msgstr ""
 
-#: ../app/Main.qml:262
+#: app/Main.qml:73 app/Main.qml:104
+msgid "Search"
+msgstr ""
+
+#: app/Main.qml:192
 msgid "uSonic Settings"
 msgstr ""

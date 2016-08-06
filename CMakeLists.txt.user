@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.5.1, 2016-05-26T22:21:53. -->
+<!-- Written by QtCreator 3.5.1, 2016-08-06T20:17:21. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -8,7 +8,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -25,7 +25,7 @@
    <valuemap type="QVariantMap" key="EditorConfiguration.CodeStyle.1">
     <value type="QString" key="language">QmlJS</value>
     <valuemap type="QVariantMap" key="value">
-     <value type="QByteArray" key="CurrentPreferences">QmlJSGlobal</value>
+     <value type="QByteArray" key="CurrentPreferences">qt</value>
     </valuemap>
    </valuemap>
    <value type="int" key="EditorConfiguration.CodeStyle.Count">2</value>
@@ -174,11 +174,11 @@
  <data>
   <variable>ProjectExplorer.Project.Target.1</variable>
   <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">UbuntuSDK for armhf (GCC ubuntu-sdk-15.04-vivid)</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">UbuntuSDK for armhf (GCC ubuntu-sdk-15.04-vivid)</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">BQ E4.5 Phone</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">BQ E4.5 Phone</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{5e1065d2-8eb9-40bb-90dd-8490622a526e}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
-   <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
+   <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">1</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool" key="CMakeProjectManager.CMakeBuildConfiguration.UseNinja">false</value>
@@ -254,7 +254,58 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Deploy to M10 Tablet</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.DeployConfiguration</value>
    </valuemap>
-   <value type="int" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.1">
+    <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">UbuntuSDK Click build</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.ClickPackageStep</value>
+      <value type="int" key="Ubuntu.UbuntuPackageStep.PackageMode">1</value>
+      <value type="bool" key="Ubuntu.UbuntuPackageStep.TreatErrorsAsWarnings">false</value>
+     </valuemap>
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
+      <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Upload files to Ubuntu Device</value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.UploadStep</value>
+      <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedFiles">
+       <value type="QString">/usr/ubuntu-sdk-ide/share/qtcreator/ubuntu/scripts/qtc_device_applaunch.py</value>
+       <value type="QString">/home/arubislander/Projects/touch/build-uSonic-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/nl.arubislander.usonic_0.1_all.click</value>
+       <value type="QString">/home/arubislander/Projects/touch/build-uSonic-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/usonic.arubislander_0.1_all.click</value>
+      </valuelist>
+      <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedHosts">
+       <value type="QString">127.0.0.1</value>
+       <value type="QString">127.0.0.1</value>
+       <value type="QString">127.0.0.1</value>
+      </valuelist>
+      <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedRemotePaths">
+       <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
+      </valuelist>
+      <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedSysroots">
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+      </valuelist>
+      <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes">
+       <value type="QDateTime">2016-08-06T20:15:23</value>
+       <value type="QDateTime">2016-08-06T20:10:40</value>
+       <value type="QDateTime">2016-08-06T20:15:23</value>
+      </valuelist>
+     </valuemap>
+     <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Deploy</value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Deploy</value>
+    </valuemap>
+    <value type="int" key="ProjectExplorer.BuildConfiguration.BuildStepListCount">1</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Deploy to Ubuntu Device</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Deploy to E 4.5</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.DeployConfiguration</value>
+   </valuemap>
+   <value type="int" key="ProjectExplorer.Target.DeployConfigurationCount">2</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.PluginSettings"/>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.0">
     <valuelist type="QVariantList" key="Analyzer.Valgrind.AddedSuppressionFiles"/>
@@ -311,15 +362,15 @@
  <data>
   <variable>ProjectExplorer.Project.Target.2</variable>
   <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">UbuntuSDK for amd64 (GCC ubuntu-sdk-15.04-vivid)</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">UbuntuSDK for amd64 (GCC ubuntu-sdk-15.04-vivid)</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{36e40c6a-5a88-47d5-a348-151e8c23daa0}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Emulator (GCC i386-ubuntu-sdk-15.04-vivid)</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Emulator (GCC i386-ubuntu-sdk-15.04-vivid)</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{2edd9e1f-7949-44f3-a4a4-d9f5328a89e6}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool" key="CMakeProjectManager.CMakeBuildConfiguration.UseNinja">false</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/arubislander/Projects/touch/build-uSonic-UbuntuSDK_for_amd64_GCC_ubuntu_sdk_15_04_vivid-Default</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/arubislander/Projects/touch/build-uSonic-Emulator_GCC_i386_ubuntu_sdk_15_04_vivid-Default</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="QString" key="CMakeProjectManager.MakeStep.AdditionalArguments"></value>
@@ -390,7 +441,7 @@
     </valuemap>
     <value type="int" key="ProjectExplorer.BuildConfiguration.BuildStepListCount">1</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Deploy to Ubuntu Device</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Deploy to Phone</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.DeployConfiguration</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
