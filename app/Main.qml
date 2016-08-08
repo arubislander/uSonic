@@ -148,6 +148,19 @@ MainView {
                         if (player.playbackState !== Audio.PlayingState)
                             player.play()
                     }
+                    //color: dragMode ? "lightblue" : "lightgray"
+                    onPressAndHold: ListView.view.ViewItems.dragMode =
+                              !ListView.view.ViewItems.dragMode
+                }
+                ViewItems.onDragUpdated: {
+                    if (event.status === ListItemDrag.Started) {
+                        return;
+                    } else if (event.status === ListItemDrag.Dropped) {
+                        playlist.moveItem(event.from, event.to)
+                        playlistModel.move(event.from, event.to, 1)
+                    } else {
+                        event.accept = false;
+                    }
                 }
             }
         }
