@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-06 20:18+0200\n"
+"POT-Creation-Date: 2016-08-08 23:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/Main.qml:49
+#: ../app/Main.qml:50
 msgid "Back"
 msgstr ""
 
-#: ../app/Main.qml:71
-#: /home/arubislander/Projects/touch/build-uSonic-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/uSonic.desktop.in.h:1
+#: ../app/Main.qml:72
+#: /home/arubislander/Projects/touch/build-uSonic-Desktop-Default/po/uSonic.desktop.in.h:1
 msgid "uSonic"
 msgstr ""
 
-#: ../app/Main.qml:77 ../app/Main.qml:161
+#: ../app/Main.qml:78 ../app/Main.qml:177
 msgid "Search"
 msgstr ""
 
-#: ../app/Main.qml:83
+#: ../app/Main.qml:84
 msgid "Clear"
 msgstr ""
 
-#: ../app/Main.qml:93
+#: ../app/Main.qml:94
 msgid "Settings"
 msgstr ""
 
-#: ../app/Main.qml:262
+#: ../app/Main.qml:279
 msgid "uSonic Settings"
 msgstr ""

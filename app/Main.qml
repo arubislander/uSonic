@@ -37,6 +37,7 @@ MainView {
         autoPlay : true
         playlist: Playlist {
             id: playlist
+            onCurrentIndexChanged: playlistview.currentIndex = playlist.currentIndex
         }
     }
 
@@ -101,6 +102,20 @@ MainView {
                 }
             }
 
+            ListItemActions {
+                id: playlistLeadingItemActions
+                actions: [
+                Action {
+                    iconName: "delete"
+                    onTriggered: {
+                        console.log(value)
+                        var index = value
+                        playlist.removeItem(index)
+                        playlistModel.remove(index)
+                    }
+                }]
+            }
+
             UbuntuListView {
                 id: playlistview
                 anchors.top: pageHeader.bottom
@@ -109,6 +124,7 @@ MainView {
                 model: playlistModel
                 delegate: ListItem {
                     id: playlistItem
+                    leadingActions: playlistLeadingItemActions
                     ListItemLayout {
                         id: playlistlayout
                         title.text: model.title
@@ -118,7 +134,7 @@ MainView {
                             width : height
                             SlotsLayout.position: SlotsLayout.Leading
                             children: [Image {
-                                    id: imgListItem
+                                    //id: imgListItem
                                     anchors.fill: parent
                                     source: model.coverArt
                                 }]
@@ -129,7 +145,7 @@ MainView {
                         if (playlist.currentIndex !== index)
                             playlist.currentIndex = index
 
-                        if (player.playbackState != Audio.PlayingState)
+                        if (player.playbackState !== Audio.PlayingState)
                             player.play()
                     }
                 }
@@ -240,7 +256,8 @@ MainView {
                                                               model.coverArt,
                                                               imgListItem.height)
                         console.log(url);
-                        playlistModel.append({"title":model.title,
+                        playlistModel.append({"playlistIndex": playlist.itemCount,
+                                             "title":model.title,
                                              "album":model.album,
                                              "artist":model.artist,
                                              "coverArt":coverart})
