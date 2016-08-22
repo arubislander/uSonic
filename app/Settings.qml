@@ -3,8 +3,10 @@ import U1db 1.0 as U1db
 
 Item {
 
-    property var accountDocument: accountSettings
-    property var recentSearchDocument: recentSearchSettings
+    property var account: accountDocument
+    property var recentSearch: recentSearchDocument
+
+    signal settingsUpdated( string server, string username, string password )
 
     U1db.Database {
         id: settingsDB
@@ -12,7 +14,7 @@ Item {
     }
 
     U1db.Document {
-        id: accountSettings
+        id: accountDocument
         database: settingsDB
         docId: "accounts_v1"
         create: true
@@ -24,13 +26,20 @@ Item {
     }
 
     U1db.Document {
-        id: recentSearchSettings
+        id: recentSearchDocument
         database: settingsDB
         docId: "recentSearch_v1"
         create: true
         defaults: {
             "recent_searches" : []
         }
+    }
+
+    Component.onCompleted: {
+        console.debug(account.contents.server)
+        settingsUpdated(  account.contents.server
+                        , account.contents.username
+                        , account.contents.password )
     }
 }
 

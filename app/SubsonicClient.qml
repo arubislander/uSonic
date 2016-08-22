@@ -11,12 +11,13 @@ Item {
     property string api_version : "1.13"
     property int saltSize: 6
 
-    property string token;
-    property string salt;
-    property string response;
+    property string token
+    property string salt
+    property string response
+    property Settings settings
 
     onPasswordChanged: {
-            if (password !== "") {
+        if (password !== "") {
             salt = Utils.random_salt(saltSize);
             token = token = Utils.get_token(password, salt);
             password = "";
@@ -54,12 +55,12 @@ Item {
 
     function getIndex(musicFolder) {
         var url = Utils.get_index_url(appcode,
-                                         api_version,
-                                         serverUrl,
-                                         username,
-                                         token,
-                                         salt,
-                                         musicFolder);
+                                      api_version,
+                                      serverUrl,
+                                      username,
+                                      token,
+                                      salt,
+                                      musicFolder);
         Utils.webclient_get(url, function(_response) {
             response = _response;
             ready();
@@ -68,12 +69,12 @@ Item {
 
     function search(query) {
         var url = Utils.get_search_url(appcode,
-                                         api_version,
-                                         serverUrl,
-                                         username,
-                                         token,
-                                         salt,
-                                         query);
+                                       api_version,
+                                       serverUrl,
+                                       username,
+                                       token,
+                                       salt,
+                                       query);
         Utils.webclient_get(url, function(_response) {
             searchResponse.xml = _response;
             searchResponse.reload();
@@ -83,12 +84,12 @@ Item {
 
     function test(query) {
         response = Utils.get_search_url(appcode,
-                                         api_version,
-                                         serverUrl,
-                                         username,
-                                         token,
-                                         salt,
-                                         query);
+                                        api_version,
+                                        serverUrl,
+                                        username,
+                                        token,
+                                        salt,
+                                        query);
         console.log(response);
         ready();
     }
