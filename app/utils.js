@@ -3,6 +3,8 @@
 
 var mt = null;
 
+// http://stackoverflow.com/questions/35577243/access-and-read-html-php-page-by-https-request-by-qml-js-behind-htaccess-apache2
+
 function webclient_get(url, callback) {
     var http = new XMLHttpRequest();
     http.onreadystatechange = function() {
