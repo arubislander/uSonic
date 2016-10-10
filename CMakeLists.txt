@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8.9)
 
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
 set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
+set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(Qt5Core)
 find_package(Qt5Qml)
@@ -19,15 +20,15 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-set(CLICK_ARCH "all")
+# set(CLICK_ARCH "all")
 # If you want to add native code to your project, replace the set CLICK_ARCH command
 # with the following part.
 # This command figures out the target architecture for use in the manifest file
-# execute_process(
-#   COMMAND dpkg-architecture -qDEB_HOST_ARCH
-#   OUTPUT_VARIABLE CLICK_ARCH
-#   OUTPUT_STRIP_TRAILING_WHITESPACE
-# )
+execute_process(
+   COMMAND dpkg-architecture -qDEB_HOST_ARCH
+   OUTPUT_VARIABLE CLICK_ARCH
+   OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
@@ -59,19 +60,24 @@ install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
 install(FILES "uSonic.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
+add_subdirectory(backend)
 add_subdirectory(po)
 
 add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
                     COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
+                    DEPENDS Usonicbackend Usonicbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
-add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+add_custom_target("check" 
+                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/backend/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+                    DEPENDS Usonicbackend Usonicbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/uSonic.qml
+                    DEPENDS Usonicbackend Usonicbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 # Normally QtCreator would only show files that are part of a target, but we need it to show also files 
 # that are not compiled. Therefore we add a custom target that just does nothing but list the files 
 add_custom_target("usonic_ClickFiles" ALL SOURCES "uSonic.apparmor" "manifest.json.in")
-
