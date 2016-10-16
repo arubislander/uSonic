@@ -3,8 +3,8 @@ import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
 
+import Usonic 1.0
 import "utils.js" as Utils
-//import Usonic 1.3
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -30,6 +30,7 @@ MainView {
             }
         }
     }
+
 
     Playlist {
         id: playlist
