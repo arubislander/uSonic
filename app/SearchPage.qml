@@ -15,20 +15,20 @@ Page {
     visible: false
     header: PageHeader {
         id: searchPageHeader
+        title: i18n.tr("Search")
         contents: TextField {
-            id: searchText
-            anchors {
-                centerIn: parent
-            }
-            width: parent.width
-            verticalAlignment: Text.AlignBottom
-            action: searchAction
+                id: searchText
+                anchors.centerIn: parent
+                width: parent.width
+                placeholderText: i18n.tr("search for song or artist")
+                action: searchAction
         }
 
         leadingActionBar.actions: backActions.actions
 
         trailingActionBar {
             actions: [
+
                 Action {
                     id: searchAction
                     iconName: "search"

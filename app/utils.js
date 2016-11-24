@@ -13,12 +13,12 @@ function webclient_get(url, callback) {
             console.log(http.getAllResponseHeaders());
             console.log("Last modified -->");
             console.log(http.getResponseHeader(("Last-Modified")));
-        } else if (http.readyState == XMLHttpRequest.DONE) {
+        } else if (http.readyState === XMLHttpRequest.DONE) {
             console.log(http.responseText);
-            callback(http.responseText)
+            callback(JSON.parse(http.responseText)["subsonic-response"])
         }
     }
-    http.open("GET", url);
+    http.open("GET", url+"&f=json");
     http.send();
 }
 

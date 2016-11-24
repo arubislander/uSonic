@@ -13,7 +13,7 @@ Item {
 
     property string token
     property string salt
-    property string response
+    property var response
     property Settings settings
 
     onPasswordChanged: {

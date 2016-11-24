@@ -3,7 +3,8 @@
         "networking",
         "webview",
         "audio",
-        "accounts"
+        "accounts",
+        "push-notification-client"
     ],
     "policy_version": 1.3
 }

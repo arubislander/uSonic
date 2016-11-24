@@ -27,7 +27,7 @@ Page {
         width: parent.width - units.gu(4)
 
         Label{
-            text: "Server:"
+            text: i18n.tr("Server:")
         }
         TextField {
             id: txtServer
@@ -35,14 +35,14 @@ Page {
             text: settings.account.contents.server
         }
         Label{
-            text: "Username :"
+            text: i18n.tr("Username:")
         }
         TextField {
             id: txtUsername
             text: settings.account.contents.username
         }
         Label{
-            text: "Password :"
+            text: i18n.tr("Password:")
         }
         TextField {
             id: txtPassword
@@ -82,7 +82,14 @@ Page {
         onReady: {
             console.debug("result", testClient.response)
         }
-        onResponseChanged: txtArea.text = testClient.response
+        onResponseChanged: {
+            var response = testClient.response;
+            if (response.status === "failed") {
+                txtArea.text = response.error.message;
+            } else {
+                txtArea.text = response.status;
+            }
+        }
     }
 
     ActionList {

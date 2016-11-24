@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 21:07+0000\n"
+"POT-Creation-Date: 2016-11-24 21:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "uSonic"
 msgstr ""
 
-#: ../app/Main.qml:87 ../app/SearchPage.qml:35
+#: ../app/Main.qml:87 ../app/SearchPage.qml:18 ../app/SearchPage.qml:36
 msgid "Search"
 msgstr ""
 
@@ -38,6 +38,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ../app/SearchPage.qml:23
+msgid "search for song or artist"
+msgstr ""
+
 #: ../app/SettingsPage.qml:9
 msgid "uSonic Settings"
+msgstr ""
+
+#: ../app/SettingsPage.qml:30
+msgid "Server:"
+msgstr ""
+
+#: ../app/SettingsPage.qml:38
+msgid "Username:"
+msgstr ""
+
+#: ../app/SettingsPage.qml:45
+msgid "Password:"
 msgstr ""
