@@ -43,7 +43,7 @@ Object {
             },
             Action{
                 id: recentAlbumNavigateAction
-                visible: true
+                visible: false
                 text: i18n.tr("Newest Albums")
                 enabled: pageStack.currentPage.objectName != "newestAlbums"
                 onTriggered: {

@@ -156,11 +156,6 @@ Page {
                 title: "Overwrite playlist: " + appResources.currentPlaylist
                 text: "Are you sure that you want to overrite?"
                 Button {
-                    text: "Cancel"
-                    color: UbuntuColors.green
-                    onClicked: PopupUtils.close(overwriteDialogue)
-                }
-                Button {
                     text: "Overwrite"
                     color: UbuntuColors.red
                     onClicked: {
@@ -180,6 +175,11 @@ Page {
 
                     }
                 }
+                Button {
+                    text: "Cancel"
+                    color: UbuntuColors.green
+                    onClicked: PopupUtils.close(overwriteDialogue)
+                }
             }
        }
 
@@ -190,17 +190,17 @@ Page {
                 title: "Clear playlist"
                 text: "There are unsaved changes, clear anyway?"
                 Button {
-                    text: "No"
-                    color: UbuntuColors.red
-                    onClicked: PopupUtils.close(clearDialogue)
-                }
-                Button {
                     text: "Yes"
                     color: UbuntuColors.green
                     onClicked: {
                         clearPlaylist();
                         PopupUtils.close(clearDialogue)
                     }
+                }
+                Button {
+                    text: "No"
+                    color: UbuntuColors.red
+                    onClicked: PopupUtils.close(clearDialogue)
                 }
             }
        }
@@ -216,11 +216,6 @@ Page {
                     placeholderText: "enter playlist name"
                     //action: dialogSaveAction
                     //onTextChanged: appResources.currentPlaylist = txtPlaylistName.text.trim()
-                }
-                Button {
-                    text: "Cancel"
-                    color: UbuntuColors.red
-                    onClicked: PopupUtils.close(saveDialogue)
                 }
                 Button {
                     text: "Save"
@@ -246,6 +241,11 @@ Page {
                         });
                         PopupUtils.close(saveDialogue);
                     }
+                }
+                Button {
+                    text: "Cancel"
+                    color: UbuntuColors.red
+                    onClicked: PopupUtils.close(saveDialogue)
                 }
             }
        }
