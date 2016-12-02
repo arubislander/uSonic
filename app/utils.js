@@ -15,7 +15,9 @@ function webclient_get(url, callback) {
             console.log(http.getResponseHeader(("Last-Modified")));
         } else if (http.readyState === XMLHttpRequest.DONE) {
             console.log(http.responseText);
-            callback(JSON.parse(http.responseText)["subsonic-response"])
+            if (callback) {
+                callback(JSON.parse(http.responseText)["subsonic-response"]);
+            }
         }
     }
     http.open("GET", url+"&f=json");
@@ -101,5 +103,73 @@ function get_search_url(appcode, target_api_version, basepath,
             + "&s=" + salt
             + "&v=" + target_api_version
             + "&query=" + query;
+    return url;
+}
+
+function get_playlists_url(appcode, target_api_version, basepath,
+                           username, token, salt) {
+    var url = basepath + "/getPlaylists.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+    return url;
+}
+
+function get_playlist_url(appcode, target_api_version, basepath,
+                          username, token, salt, playlistId) {
+    var url = basepath + "/getPlaylist.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+            + "&id=" + playlistId
+    return url;
+}
+
+//createPlaylist.view
+function create_playlist_url(appcode, target_api_version, basepath,
+                             username, token, salt, name, songIds) {
+   var url = basepath + "/createPlaylist.view?c=" + appcode
+           + "&u=" + username
+           + "&t=" + token
+           + "&s=" + salt
+           + "&v=" + target_api_version
+           + "&name=" + name
+           + "&songId=" + songIds.join("&songId=")
+   return url;
+}
+
+function delete_playlist_url(appcode, target_api_version, basepath,
+                             username, token, salt, playlistId) {
+   var url = basepath + "/deletePlaylist.view?c=" + appcode
+           + "&u=" + username
+           + "&t=" + token
+           + "&s=" + salt
+           + "&v=" + target_api_version
+           + "&id=" + playlistId;
+   return url;
+}
+
+
+function get_albumList_url(appcode, target_api_version, basepath,
+                         username, token, salt, type) {
+    var url = basepath + "/getAlbumList2.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+            + "&type=" + type
+    return url;
+}
+
+function get_album_url(appcode, target_api_version, basepath,
+                       username, token, salt, albumId) {
+    var url = basepath + "/getAlbum.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+            + "&id=" + albumId
     return url;
 }

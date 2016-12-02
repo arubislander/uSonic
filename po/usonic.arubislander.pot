@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 21:29+0000\n"
+"POT-Creation-Date: 2016-11-29 23:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,52 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/Main.qml:62
-msgid "Back"
+#: ../app/AppResources.qml:24 ../app/CurrentPlaylistPage.qml:15
+msgid "Current Playlist"
 msgstr ""
 
-#: ../app/Main.qml:81
-#: /home/arubislander/Projects/touch/build/build-uSonic-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Debug/po/uSonic.desktop.in.h:1
-msgid "uSonic"
+#: ../app/AppResources.qml:35
+msgid "Playlists"
 msgstr ""
 
-#: ../app/Main.qml:87 ../app/SearchPage.qml:18 ../app/SearchPage.qml:36
-msgid "Search"
+#: ../app/AppResources.qml:47 ../app/RecentAlbumsPage.qml:14
+msgid "Newest Albums"
 msgstr ""
 
-#: ../app/Main.qml:99
-msgid "Clear"
-msgstr ""
-
-#: ../app/Main.qml:109
+#: ../app/AppResources.qml:59
 msgid "Settings"
 msgstr ""
 
-#: ../app/SearchPage.qml:23
+#: ../app/CurrentPlaylistPage.qml:24
+msgid "Clear"
+msgstr ""
+
+#: ../app/CurrentPlaylistPage.qml:39
+msgid "Save ..."
+msgstr ""
+
+#: ../app/CurrentPlaylistPage.qml:51 ../app/SearchPage.qml:15
+#: ../app/SearchPage.qml:32
+msgid "Search"
+msgstr ""
+
+#: ../app/PlayListsPage.qml:14
+msgid "PlayLists"
+msgstr ""
+
+#: ../app/SavePlaylistPage.qml:9
+msgid "Save Playlist"
+msgstr ""
+
+#: ../app/SavePlaylistPage.qml:28
+msgid "Name:"
+msgstr ""
+
+#: ../app/SearchPage.qml:20
 msgid "search for song or artist"
 msgstr ""
 
-#: ../app/SettingsPage.qml:9
+#: ../app/SettingsPage.qml:10
 msgid "uSonic Settings"
 msgstr ""
 
@@ -50,10 +70,14 @@ msgstr ""
 msgid "Server:"
 msgstr ""
 
-#: ../app/SettingsPage.qml:38
+#: ../app/SettingsPage.qml:40
 msgid "Username:"
 msgstr ""
 
-#: ../app/SettingsPage.qml:45
+#: ../app/SettingsPage.qml:49
 msgid "Password:"
+msgstr ""
+
+#: /home/arubislander/Projects/touch/build/build-uSonic-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Release/po/uSonic.desktop.in.h:1
+msgid "uSonic"
 msgstr ""

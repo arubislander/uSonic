@@ -1,52 +1,49 @@
-import QtQuick 2.0
+import QtQuick 2.4
 import Ubuntu.Components 1.3
 import QtMultimedia 5.6
 import QtQuick.XmlListModel 2.0
 
-
 Page {
-    id: searchPage
-    objectName: "search"
+    id: recentAlbumsPage
     property AppResources appResources
+
 
     visible: false
     header: PageHeader {
-        id: searchPageHeader
-        title: i18n.tr("Search")
-        contents: TextField {
-                id: searchText
-                anchors.centerIn: parent
-                width: parent.width
-                placeholderText: i18n.tr("search for song or artist")
-                action: searchAction
-        }
+        id: recentAlbumsPageHeader
+        title: appResources.currentAlbum
 
-        //leadingActionBar.actions: appResources.menu.actions
-
-        trailingActionBar {
-            actions: [
-
-                Action {
-                    id: searchAction
-                    iconName: "search"
-                    text: i18n.tr("Search")
-                    onTriggered: {
-                        listview.model.source = appResources.getSearchUrl(searchText.text);
-                    }
-                }
-            ]
-            numberOfSlots: 1
-        }
+        //leadingActionBar.actions: appResources.backActions.actions
     }
+
+    Component.onCompleted: {
+        listview.model.source = appResources.getAlbumUrl(appResources.currentAlbumId);
+    }
+
+    /*
+
+<subsonic-response xmlns="http://subsonic.org/restapi" status="ok" version="1.8.0">
+    <albumList2>
+        <album id="1768"
+               name="Duets"
+               coverArt="al-1768"
+               songCount="2"
+               created="2002-11-09T15:44:40"
+               duration="514"
+               artist="Nik Kershaw"
+               artistId="829"/>
+    </albumList2>
+</subsonic-response>
+    */
 
     UbuntuListView {
         id: listview
-        anchors.top: searchPageHeader.bottom
+        anchors.top: recentAlbumsPageHeader.bottom
         anchors.bottom: parent.bottom
         width: parent.width
         model: XmlListModel {
-            query: "//searchResult2/song"
             namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
+            query: "//album/song"
             XmlRole { name: "songId"; query: "@id/string()" }
             XmlRole { name: "title"; query: "@title/string()" }
             XmlRole { name: "album"; query: "@album/string()" }
@@ -73,12 +70,12 @@ Page {
                     height: appResources.shapeSize
                     width : height
                     SlotsLayout.position: SlotsLayout.Leading
-                    children: [Image {
+                    Image {
                             id: imgListItem
                             anchors.fill: parent
                             source: appResources.getCoverArtUrl(model.coverArt,
                                                            imgListItem.height)
-                        }]
+                        }
                 }
             }
             onClicked: {
@@ -87,7 +84,7 @@ Page {
                                                            imgListItem.height)
 
                 appResources.playlistModel.append({
-                     "songId":model.songId,
+                     "songId" : model.songId,
                      "playlistIndex": appResources.playlist.itemCount,
                      "title":model.title,
                      "album":model.album,

@@ -3,16 +3,15 @@ import Ubuntu.Components 1.3
 
 Page {
     id: settingsPage
+    objectName: "settings"
     visible: false
     header : PageHeader {
         id: settingsPageHeader
         title: i18n.tr("uSonic Settings")
-        leadingActionBar.actions:backActionList.actions
+        leadingActionBar.actions: appResources.menu.actions
     }
 
-    property PageStack pageStack
-    property Settings settings
-    property ActionList backActionList
+    property AppResources appResources
 
     Column {
 
@@ -24,53 +23,65 @@ Page {
             bottom: parent.bottom
             horizontalCenter: parent.horizontalCenter
         }
+
         width: parent.width - units.gu(4)
 
         Label{
             text: i18n.tr("Server:")
         }
+
         TextField {
             id: txtServer
             width: parent.width
-            text: settings.account.contents.server
+            text: appResources.client.settings.account.contents.server
         }
+
         Label{
             text: i18n.tr("Username:")
         }
+
         TextField {
             id: txtUsername
-            text: settings.account.contents.username
+            text: appResources.client.settings.account.contents.username
         }
+
         Label{
             text: i18n.tr("Password:")
         }
+
         TextField {
             id: txtPassword
-            text: settings.account.contents.password
+            text: appResources.client.settings.account.contents.password
             echoMode: TextInput.Password
         }
 
         Row {
             id: buttonsRow
-            spacing: units.gu(3)
+            spacing: (parent.width - (btnCancel.width + btnPing.width + btnSave.width))/2
+
             Button {
+                id: btnCancel
+                color: UbuntuColors.green
+                action: cancelAction
+            }
+
+            Button {
+                id: btnPing
                 strokeColor: UbuntuColors.warmGrey
                 action: pingAction
             }
+
             Button {
+                id: btnSave
                 strokeColor: UbuntuColors.warmGrey
                 action: saveAction
-            }
-            Button {
-                color: UbuntuColors.green
-                action: cancelAction
             }
         }
 
         TextArea {
             id: txtArea
             width: parent.width
-            text: testClient.response
+            text: testClient.response ? testClient.response : ""
         }
     }
 
@@ -82,6 +93,7 @@ Page {
         onReady: {
             console.debug("result", testClient.response)
         }
+
         onResponseChanged: {
             var response = testClient.response;
             if (response.status === "failed") {
@@ -108,12 +120,12 @@ Page {
                 name: "saveAction"
                 text: "Save"
                 onTriggered: {
-                    settings.account.contents = {
+                    appResources.client.settings.account.contents = {
                         "server" : txtServer.text,
                         "username" : txtUsername.text,
                         "password" : txtPassword.text
                     }
-                    settings.settingsUpdated(txtServer.text,
+                    appResources.client.settings.settingsUpdated(txtServer.text,
                                              txtUsername.text,
                                              txtPassword.text)
                     pageStack.pop();
@@ -124,9 +136,9 @@ Page {
                 name: "cancelAction"
                 text: "Cancel"
                 onTriggered: {
-                    txtServer.text = settings.account.contents.server
-                    txtUsername.text = settings.account.contents.username
-                    txtPassword.text = settings.account.contents.password
+                    txtServer.text = appResources.client.settings.account.contents.server
+                    txtUsername.text = appResources.client.settings.account.contents.username
+                    txtPassword.text = appResources.client.settings.account.contents.password
 
                     pageStack.pop();
                 }
