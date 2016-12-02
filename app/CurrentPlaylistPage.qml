@@ -18,6 +18,17 @@ Page {
             actions: [
 
                 Action {
+                    id: settingsNavigateAction
+                    iconName: "settings"
+                    text: i18n.tr("Settings")
+                    enabled: pageStack.currentPage.objectName != "settings"
+                    onTriggered: {
+                        //pageStack.clear();
+                        pageStack.push(Qt.resolvedUrl("SettingsPage.qml"),
+                                       {appResources: appResources})
+                    }
+                },
+                Action {
                     id: clearPlaylistAction
                     iconName: "clear"
                     enabled: appResources.playlistModel.count > 0
@@ -55,7 +66,7 @@ Page {
                     }
                 }
             ]
-            numberOfSlots: 3
+            numberOfSlots: 4
         }
     }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 23:50+0000\n"
+"POT-Creation-Date: 2016-12-02 22:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,19 +29,19 @@ msgstr ""
 msgid "Newest Albums"
 msgstr ""
 
-#: ../app/AppResources.qml:59
+#: ../app/CurrentPlaylistPage.qml:23
 msgid "Settings"
 msgstr ""
 
-#: ../app/CurrentPlaylistPage.qml:24
+#: ../app/CurrentPlaylistPage.qml:35
 msgid "Clear"
 msgstr ""
 
-#: ../app/CurrentPlaylistPage.qml:39
+#: ../app/CurrentPlaylistPage.qml:50
 msgid "Save ..."
 msgstr ""
 
-#: ../app/CurrentPlaylistPage.qml:51 ../app/SearchPage.qml:15
+#: ../app/CurrentPlaylistPage.qml:62 ../app/SearchPage.qml:15
 #: ../app/SearchPage.qml:32
 msgid "Search"
 msgstr ""
@@ -78,6 +78,6 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#: /home/arubislander/Projects/touch/build/build-uSonic-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Release/po/uSonic.desktop.in.h:1
+#: /home/arubislander/Projects/touch/build/build-uSonic-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_15_04-Debug/po/uSonic.desktop.in.h:1
 msgid "uSonic"
 msgstr ""

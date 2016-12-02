@@ -43,7 +43,7 @@ Object {
             },
             Action{
                 id: recentAlbumNavigateAction
-                visible: false
+                visible: true
                 text: i18n.tr("Newest Albums")
                 enabled: pageStack.currentPage.objectName != "newestAlbums"
                 onTriggered: {
@@ -51,17 +51,6 @@ Object {
                     pageStack.push(Qt.resolvedUrl("RecentAlbumsPage.qml"),
                                    {appResources: res}
                                    );
-                }
-            },
-            Action {
-                id: settingsNavigateAction
-                //iconName: "settings"
-                text: i18n.tr("Settings")
-                enabled: pageStack.currentPage.objectName != "settings"
-                onTriggered: {
-                    pageStack.clear();
-                    pageStack.push(Qt.resolvedUrl("SettingsPage.qml"),
-                                   {appResources: res})
                 }
             }
         ]}
