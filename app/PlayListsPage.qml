@@ -125,19 +125,20 @@ Page {
                 id: layout
                 title.text: model.name
                 subtitle.text: model.comment
-                summary.text: songCount + (songCount === "1" ? " song" : " songs")
-                Shape {
+                summary.text: songCount + (songCount === "1" ? " track" : " tracks")
+                UbuntuShape {
                     height: appResources.shapeSize
                     width : height
+                    radius: "medium"
+                    aspect:  UbuntuShape.Inset
                     SlotsLayout.position: SlotsLayout.Leading
-                    children:
-                        [Image {
+                    source: Image {
                             id: imgListItem
                             anchors.fill: parent
                             source: appResources.getCoverArtUrl(
                                         model.coverArt,
                                         imgListItem.height)
-                        }]
+                        }
                 }
             }
 

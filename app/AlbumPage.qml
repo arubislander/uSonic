@@ -66,11 +66,13 @@ Page {
                 title.text: model.title
                 subtitle.text: model.artist
                 summary.text: model.album
-                Shape {
+                UbuntuShape {
                     height: appResources.shapeSize
                     width : height
+                    radius: "medium"
+                    aspect:  UbuntuShape.Inset
                     SlotsLayout.position: SlotsLayout.Leading
-                    Image {
+                    source : Image {
                             id: imgListItem
                             anchors.fill: parent
                             source: appResources.getCoverArtUrl(model.coverArt,

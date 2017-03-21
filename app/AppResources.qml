@@ -17,6 +17,7 @@ Object {
     property bool dirty : false
 
     readonly property int shapeSize : units.gu(7);
+    readonly property int iconSize: units.gu(2);
 
     readonly property ActionList menu : ActionList { actions : [
             Action{
@@ -43,7 +44,7 @@ Object {
             },
             Action{
                 id: recentAlbumNavigateAction
-                visible: false
+                visible: true
                 text: i18n.tr("Newest Albums")
                 enabled: pageStack.currentPage.objectName != "newestAlbums"
                 onTriggered: {

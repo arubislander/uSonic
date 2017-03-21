@@ -115,14 +115,16 @@ Page {
                 title.text: model.title
                 subtitle.text: model.album
                 summary.text: model.artist
-                Shape {
+                UbuntuShape {
                     height: appResources.shapeSize
                     width : height
+                    radius: "medium"
+                    aspect:  UbuntuShape.Inset
                     SlotsLayout.position: SlotsLayout.Leading
-                    children: [Image {
+                    source: Image {
                             anchors.fill: parent
                             source: model.coverArt
-                        }]
+                        }
                 }
             }
             onClicked: {

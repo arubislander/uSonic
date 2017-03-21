@@ -61,7 +61,7 @@ Page {
 
             Button {
                 id: btnCancel
-                color: UbuntuColors.green
+                //color: UbuntuColors.green
                 action: cancelAction
             }
 
@@ -73,7 +73,7 @@ Page {
 
             Button {
                 id: btnSave
-                strokeColor: UbuntuColors.warmGrey
+                //strokeColor: UbuntuColors.warmGrey
                 action: saveAction
             }
         }
