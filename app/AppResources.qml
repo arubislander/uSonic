@@ -43,19 +43,68 @@ Object {
                 }
             },
             Action{
-                id: recentAlbumNavigateAction
-                visible: true
+                id: favouriteAlbumNavigateAction
+                visible: false
+                text: i18n.tr("Favourite Albums")
+                enabled: pageStack.currentPage.objectName != "favouriteAlbums"
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(Qt.resolvedUrl("AlbumsPage.qml"),
+                                   {
+                                     objectName: "favouriteAlbums",
+                                     appResources: res,
+                                     title: "Favourite Albums",
+                                     type: "starred"
+                                   });
+                }
+            },
+            Action{
+                id: newestAlbumNavigateAction
+                //visible: false
                 text: i18n.tr("Newest Albums")
                 enabled: pageStack.currentPage.objectName != "newestAlbums"
                 onTriggered: {
                     pageStack.clear();
-                    pageStack.push(Qt.resolvedUrl("RecentAlbumsPage.qml"),
-                                   {appResources: res}
-                                   );
+                    pageStack.push(Qt.resolvedUrl("AlbumsPage.qml"),
+                                   {
+                                     objectName: "newestAlbums",
+                                     appResources: res,
+                                     title: "Newest Albums",
+                                     type: "newest"
+                                   });
+                }
+            },
+            Action{
+                id: randomAlbumNavigateAction
+                text: i18n.tr("Random Albums")
+                enabled: pageStack.currentPage.objectName != "randomAlbums"
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(Qt.resolvedUrl("AlbumsPage.qml"),
+                                   {
+                                     objectName: "randomAlbums",
+                                     appResources: res,
+                                     title: "Random Albums",
+                                     type: "random"
+                                   });
+                }
+            },
+            Action{
+                id: recentAlbumNavigateAction
+                text: i18n.tr("Recent Albums")
+                enabled: pageStack.currentPage.objectName != "recentAlbums"
+                onTriggered: {
+                    pageStack.clear();
+                    pageStack.push(Qt.resolvedUrl("AlbumsPage.qml"),
+                                   {
+                                     objectName: "recentAlbums",
+                                     appResources: res,
+                                     title: "Recent Albums",
+                                     type: "recent"
+                                   });
                 }
             }
         ]}
-
     readonly property SubsonicClient client : SubsonicClient {
         id: client
         settings: Settings {
@@ -88,10 +137,55 @@ Object {
             }
         }
     }
+    readonly property XmlListModel itemsView : XmlListModel {
+        id: itemsView
+        namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
+        //query: "//playlist/entry"
+        XmlRole { name: "songId"; query: "@id/string()" }
+        XmlRole { name: "title"; query: "@title/string()" }
+        XmlRole { name: "album"; query: "@album/string()" }
+        XmlRole { name: "artist"; query: "@artist/string()" }
+        XmlRole { name: "coverArt"; query: "@coverArt/string()" }
 
+        onStatusChanged: {
+            if (itemsView.status == XmlListModel.Ready) {
+                res.playlistModel.clear();
+                res.playlist.clear();
+
+                for (var i=0; i < itemsView.count; i++) {
+                    var item = itemsView.get(i);
+                    res.addToPlaylist(item)
+                }
+            }
+        }
+    }
+
+    function clearPlaylist() {
+        console.log("Clearing playlist")
+        res.playlist.clear()
+        res.playlistModel.clear()
+        res.dirty = false;
+        res.currentPlaylist = "";
+        res.currentPlaylistId = "";
+    }
+    function addToPlaylist (model) {
+      var url = res.getStreamUrl(model.songId)
+      var coverart = res.getCoverArtUrl(model.coverArt, res.shapeSize)
+
+      res.playlistModel.append({
+           "songId" : model.songId,
+           "playlistIndex": res.playlist.itemCount,
+           "title":model.title,
+           "album":model.album,
+           "artist":model.artist,
+           "coverArt":coverart})
+
+      res.playlist.addItem(url)
+      res.dirty = true;
+    }
     function getSearchUrl(query) {
         console.log("assembling search url for query:", query);
-        var url = Utils.get_search_url(client.appcode,
+        var url = Utils.get_search_song_url(client.appcode,
                                        client.api_version,
                                        client.serverUrl,
                                        client.username,
@@ -101,7 +195,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function getCoverArtUrl(coverArtId, height) {
         console.log("assembling cover art url for:", coverArtId);
         var url = Utils.get_coverart_url(
@@ -116,7 +209,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function getStreamUrl(songId) {
         console.log("assembling stream url for: ", songId);
         var url = Utils.get_stream_Url(
@@ -130,7 +222,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function getPlaylistsUrl() {
         console.log("assembling playlists url");
         var url = Utils.get_playlists_url(
@@ -143,7 +234,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function getPlaylistUrl(playlistId) {
         console.log("assembling playlist url");
         var url = Utils.get_playlist_url(
@@ -157,9 +247,8 @@ Object {
         console.log(url);
         return url;
     }
-
     function getAlbumListUrl(type) {
-        console.log("assembling recent albums url");
+        console.log("assembling " + type + " albums url");
         var url = Utils.get_albumList_url(
                     client.appcode,
                     client.api_version,
@@ -171,7 +260,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function getAlbumUrl(albumId) {
         console.log("assembling album url");
         var url = Utils.get_album_url(
@@ -185,7 +273,6 @@ Object {
         console.log(url);
         return url;
     }
-
     function createPlaylist(name, songIds, callback) {
         console.log("creating playlist");
         var url = Utils.create_playlist_url(
@@ -200,7 +287,6 @@ Object {
         console.log(url);
         Utils.webclient_get(url, callback)
     }
-
     function removePlaylist(playlistId, callback) {
         console.log("removing playlist");
         var url = Utils.delete_playlist_url(

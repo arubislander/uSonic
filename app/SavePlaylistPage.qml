@@ -32,7 +32,7 @@ Page {
             id: txtPlaylistName
             width: parent.width
             text: appResources.currentPlaylist
-            placeholderText: "enter playlist name"
+            placeholderText: i18n.tr("enter playlist name")
             action: saveAction
         }
 
@@ -59,7 +59,7 @@ Page {
             Action {
                 id: saveAction
                 name: "saveAction"
-                text: "Save"
+                text: i18n.tr("Save")
                 enabled : txtPlaylistName.text.trim() != ""
                 onTriggered: {
                     if (appResources.currentPlaylistId)
@@ -87,7 +87,7 @@ Page {
             Action {
                 id: cancelAction
                 name: "cancelAction"
-                text: "Cancel"
+                text: i18n.tr("Cancel")
                 onTriggered: {
                     pageStack.pop();
                 }
@@ -95,4 +95,3 @@ Page {
         ]
     }
 }
-

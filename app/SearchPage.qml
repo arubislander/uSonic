@@ -81,23 +81,7 @@ Page {
                         }]
                 }
             }
-            onClicked: {
-                var url = appResources.getStreamUrl(model.songId)
-                var coverart = appResources.getCoverArtUrl(model.coverArt,
-                                                           imgListItem.height)
-
-                appResources.playlistModel.append({
-                     "songId":model.songId,
-                     "playlistIndex": appResources.playlist.itemCount,
-                     "title":model.title,
-                     "album":model.album,
-                     "artist":model.artist,
-                     "coverArt":coverart})
-
-                appResources.playlist.addItem(url)
-                appResources.dirty = true;
-            }
+            onClicked: appResources.addToPlaylist(model)
         }
     }
 }
-

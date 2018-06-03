@@ -4,20 +4,22 @@ import QtMultimedia 5.6
 import QtQuick.XmlListModel 2.0
 
 Page {
-    id: recentAlbumsPage
-    objectName: "newestAlbums"
+    id: albumsPage
+    //objectName: "albums"
     property AppResources appResources
+    property string title
+    property string type
 
     visible: false
     header: PageHeader {
         id: newestAlbumsPageHeader
-        title: i18n.tr("Newest Albums")
+        title: albumsPage.title
 
         leadingActionBar.actions: appResources.menu.actions
     }
 
     Component.onCompleted: {
-        listview.model.source = appResources.getAlbumListUrl("newest");
+        listview.model.source = appResources.getAlbumListUrl(albumsPage.type);
     }
 
     /*
@@ -60,11 +62,28 @@ Page {
         delegate: ListItem {
             height: layout.height +
                     (divider.visible?divider.height:0)
+            trailingActions: ListItemActions {
+              id: songListItemActions
+              actions: [
+                Action {
+                  id: addToPlaylist
+                  iconName: "add-to-playlist"
+                  text: i18n.tr("Play album")
+                  onTriggered: {
+                    appResources.clearPlaylist()
+                    appResources.itemsView.query = "//album/song"
+                    appResources.itemsView.source =
+                            appResources.getAlbumUrl(model.albumId);
+                  }
+                }
+              ]
+            }
             ListItemLayout {
                 id: layout
                 title.text: model.name
                 subtitle.text: model.artist
-                summary.text: songCount + (songCount === "1"? " track" : " tracks")
+                summary.text: songCount + " " +
+                    (songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
                 UbuntuShape {
                     height: appResources.shapeSize
                     width : height
@@ -94,4 +113,3 @@ Page {
         }
     }
 }
-

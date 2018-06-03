@@ -95,13 +95,30 @@ function get_index_url(appcode, target_api_version, basepath,
     return url;
 }
 
-function get_search_url(appcode, target_api_version, basepath,
+function get_search_song_url(appcode, target_api_version, basepath,
                         username, token, salt, query) {
     var url = basepath + "/search2.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
+            + "&albumCount=0"
+            + "&artistCount=0"
+            + "&songCount=200"
+            + "&query=" + query;
+    return url;
+}
+
+function get_search_album_url(appcode, target_api_version, basepath,
+                        username, token, salt, query) {
+    var url = basepath + "/search2.view?c=" + appcode
+            + "&u=" + username
+            + "&t=" + token
+            + "&s=" + salt
+            + "&v=" + target_api_version
+            + "&albumCount=200"
+            + "&artistCount=0"
+            + "&songCount=0"
             + "&query=" + query;
     return url;
 }
@@ -159,6 +176,7 @@ function get_albumList_url(appcode, target_api_version, basepath,
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
+            + "&size=100"
             + "&type=" + type
     return url;
 }

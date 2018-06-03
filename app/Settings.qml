@@ -42,6 +42,3 @@ Item {
                         , account.contents.password )
     }
 }
-
-
-

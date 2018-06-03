@@ -25,10 +25,14 @@ MainView {
 
     PageStack {
         id: pageStack
-        Component.onCompleted: pageStack.push(Qt.resolvedUrl("CurrentPlaylistPage.qml"),
-                                              {
-                                                  appResources: resources
-                                              })
     }
-}
 
+    Component.onCompleted: pageStack.push(
+                  Qt.resolvedUrl("AlbumsPage.qml"),
+                   {
+                     objectName: "randomAlbums",
+                     appResources: resources,
+                     title: "Random Albums",
+                     type: "random"
+                   })
+}

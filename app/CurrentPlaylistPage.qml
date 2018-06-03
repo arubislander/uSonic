@@ -88,7 +88,7 @@ Page {
     Action {
         id: dialogSaveAction
         name: "saveAction"
-        text: "Save"
+        text: i18n.tr("Save")
         onTriggered: {
         }
     }
@@ -155,10 +155,10 @@ Page {
             id: confirmOverwriteDialog
             Dialog {
                 id: overwriteDialogue
-                title: "Overwrite playlist: " + appResources.currentPlaylist
-                text: "Are you sure that you want to overrite?"
+                title: i18n.tr("Overwrite playlist: ") + appResources.currentPlaylist
+                text: i18n.tr("Are you sure that you want to overrite?")
                 Button {
-                    text: "Overwrite"
+                    text: i18n.tr("Overwrite")
                     color: UbuntuColors.red
                     onClicked: {
                         if (appResources.currentPlaylistId)
@@ -178,7 +178,7 @@ Page {
                     }
                 }
                 Button {
-                    text: "Cancel"
+                    text: i18n.tr("Cancel")
                     color: UbuntuColors.green
                     onClicked: PopupUtils.close(overwriteDialogue)
                 }
@@ -189,10 +189,10 @@ Page {
             id: confirmClearDialog
             Dialog {
                 id: clearDialogue
-                title: "Clear playlist"
-                text: "There are unsaved changes, clear anyway?"
+                title: i18n.tr("Clear playlist")
+                text: i18n.tr("There are unsaved changes, clear anyway?")
                 Button {
-                    text: "Yes"
+                    text: i18n.tr("Yes")
                     color: UbuntuColors.green
                     onClicked: {
                         clearPlaylist();
@@ -200,7 +200,7 @@ Page {
                     }
                 }
                 Button {
-                    text: "No"
+                    text: i18n.tr("No")
                     color: UbuntuColors.red
                     onClicked: PopupUtils.close(clearDialogue)
                 }
@@ -211,16 +211,16 @@ Page {
             id: saveDialog
             Dialog {
                 id: saveDialogue
-                title: "Save playlist"
+                title: i18n.tr("Save playlist")
                 TextField {
                     id: txtPlaylistName
                     width: parent.width
-                    placeholderText: "enter playlist name"
+                    placeholderText: i18n.tr("enter playlist name")
                     //action: dialogSaveAction
                     //onTextChanged: appResources.currentPlaylist = txtPlaylistName.text.trim()
                 }
                 Button {
-                    text: "Save"
+                    text: i18n.tr("Save")
                     color: UbuntuColors.green
                     enabled: txtPlaylistName.text != ""
                     onClicked: {
@@ -245,7 +245,7 @@ Page {
                     }
                 }
                 Button {
-                    text: "Cancel"
+                    text: i18n.tr("Cancel")
                     color: UbuntuColors.red
                     onClicked: PopupUtils.close(saveDialogue)
                 }
@@ -253,11 +253,6 @@ Page {
        }
 
     function clearPlaylist() {
-        console.log("Clearing playlist")
-        appResources.playlist.clear()
-        appResources.playlistModel.clear()
-        appResources.dirty = false;
-        appResources.currentPlaylist = "";
-        appResources.currentPlaylistId = "";
+        appResources.clearPlaylist()
     }
 }

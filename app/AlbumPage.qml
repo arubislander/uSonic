@@ -20,8 +20,7 @@ Page {
         listview.model.source = appResources.getAlbumUrl(appResources.currentAlbumId);
     }
 
-    /*
-
+/*
 <subsonic-response xmlns="http://subsonic.org/restapi" status="ok" version="1.8.0">
     <albumList2>
         <album id="1768"
@@ -34,7 +33,7 @@ Page {
                artistId="829"/>
     </albumList2>
 </subsonic-response>
-    */
+*/
 
     UbuntuListView {
         id: listview
@@ -58,7 +57,20 @@ Page {
                 model.reload();
             }
         }
+
         delegate: ListItem {
+            // trailingActions: ListItemActions {
+            //   id: songListItemActions
+            //   actions: [
+            //     Action {
+            //       id: addToPlaylist
+            //       iconName: "add-to-playlist"
+            //       text: i18n.tr("Add to queue")
+            //       onTriggered: appResources.addToPlaylist(model, imgListItem.height)
+            //     }
+            //   ]
+            // }
+
             height: layout.height +
                     (divider.visible?divider.height:0)
             ListItemLayout {
@@ -80,23 +92,7 @@ Page {
                         }
                 }
             }
-            onClicked: {
-                var url = appResources.getStreamUrl(model.songId)
-                var coverart = appResources.getCoverArtUrl(model.coverArt,
-                                                           imgListItem.height)
-
-                appResources.playlistModel.append({
-                     "songId" : model.songId,
-                     "playlistIndex": appResources.playlist.itemCount,
-                     "title":model.title,
-                     "album":model.album,
-                     "artist":model.artist,
-                     "coverArt":coverart})
-
-                appResources.playlist.addItem(url)
-                appResources.dirty = true;
-            }
+            onClicked: appResources.addToPlaylist(model, imgListItem.height)
         }
     }
-}
-
+  }

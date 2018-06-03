@@ -39,42 +39,6 @@ Page {
         </subsonic-response>
     */
 
-    XmlListModel {
-        id: itemsView
-        namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
-        query: "//playlist/entry"
-        XmlRole { name: "songId"; query: "@id/string()" }
-        XmlRole { name: "title"; query: "@title/string()" }
-        XmlRole { name: "album"; query: "@album/string()" }
-        XmlRole { name: "artist"; query: "@artist/string()" }
-        XmlRole { name: "coverArt"; query: "@coverArt/string()" }
-
-        onStatusChanged: {
-            if (itemsView.status == XmlListModel.Ready) {
-                appResources.playlistModel.clear();
-                appResources.playlist.clear();
-
-                for (var i=0; i < itemsView.count; i++) {
-                    var item = itemsView.get(i);
-
-                    var url = appResources.getStreamUrl(item.songId)
-                    var coverart = appResources.getCoverArtUrl(item.coverArt,
-                                                               appResources.shapeSize);
-
-                    appResources.playlistModel.append({
-                         "songId": item.songId,
-                         "playlistIndex": appResources.playlist.itemCount,
-                         "title":item.title,
-                         "album":item.album,
-                         "artist":item.artist,
-                         "coverArt":coverart})
-
-                    appResources.playlist.addItem(url)
-                }
-            }
-        }
-    }
-
     ListItemActions {
         id: playlistLeadingItemActions
         actions: [
@@ -125,7 +89,8 @@ Page {
                 id: layout
                 title.text: model.name
                 subtitle.text: model.comment
-                summary.text: songCount + (songCount === "1" ? " track" : " tracks")
+                summary.text: songCount + " " +
+                    (songCount === "1" ? i18n.tr("track") : i18n.tr("tracks"))
                 UbuntuShape {
                     height: appResources.shapeSize
                     width : height
@@ -146,10 +111,10 @@ Page {
                 appResources.currentPlaylist   = model.name;
                 appResources.currentPlaylistId = model.playlistId;
                 appResources.dirty = false;
-
-                itemsView.source = appResources.getPlaylistUrl(model.playlistId);
+                appResources.itemsView.query = "//playlist/entry"
+                appResources.itemsView.source =
+                        appResources.getPlaylistUrl(model.playlistId);
             }
         }
     }
 }
-
