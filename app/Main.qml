@@ -3,7 +3,7 @@ import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
 
-import Usonic 1.0
+// import Usonic 1.0
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -21,14 +21,14 @@ MainView {
 
     AppResources {
         id: resources
-   }
+    }
 
     PageStack {
         id: pageStack
     }
 
     Component.onCompleted: pageStack.push(
-                  Qt.resolvedUrl("AlbumsPage.qml"),
+      Qt.resolvedUrl("AlbumsPage.qml"),
                    {
                      objectName: "randomAlbums",
                      appResources: resources,

@@ -60,24 +60,24 @@ install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
 install(FILES "uSonic.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
-add_subdirectory(backend)
+# add_subdirectory(backend)
 add_subdirectory(po)
 
-add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-                    COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-                    DEPENDS Usonicbackend Usonicbackend-qmldir
-                    WORKING_DIRECTORY ./app)
+#add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
+#                    COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
+#                    DEPENDS Usonicbackend Usonicbackend-qmldir
+#                    WORKING_DIRECTORY ./app)
 
-add_custom_target("check" 
-                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/backend/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-                    DEPENDS Usonicbackend Usonicbackend-qmldir
-                    WORKING_DIRECTORY ./app)
+#add_custom_target("check"
+#                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/backend/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+#                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
+#                    DEPENDS Usonicbackend Usonicbackend-qmldir
+#                    WORKING_DIRECTORY ./app)
 
-add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/uSonic.qml
-                    DEPENDS Usonicbackend Usonicbackend-qmldir
-                    WORKING_DIRECTORY ./app)
+#add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/uSonic.qml
+#                    DEPENDS Usonicbackend Usonicbackend-qmldir
+#                    WORKING_DIRECTORY ./app)
 
-# Normally QtCreator would only show files that are part of a target, but we need it to show also files 
-# that are not compiled. Therefore we add a custom target that just does nothing but list the files 
+# Normally QtCreator would only show files that are part of a target, but we need it to show also files
+# that are not compiled. Therefore we add a custom target that just does nothing but list the files
 add_custom_target("usonic_ClickFiles" ALL SOURCES "uSonic.apparmor" "manifest.json.in")
