@@ -49,7 +49,7 @@ function get_coverart_url(appcode, target_api_version, basepath,
             + "&v=" + target_api_version
             + "&id=" + coverart_id
             + "&size=" + size;
-    console.debug("url:", url)
+    //console.debug("url:", url)
     return url;
 }
 
@@ -97,26 +97,26 @@ function get_index_url(appcode, target_api_version, basepath,
 
 function get_search_song_url(appcode, target_api_version, basepath,
                         username, token, salt, query) {
-    var url = basepath + "/search2.view?c=" + appcode
+    var url = basepath + "/search3.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
             + "&albumCount=0"
             + "&artistCount=0"
-            + "&songCount=200"
+            + "&songCount=10"
             + "&query=" + query;
     return url;
 }
 
 function get_search_album_url(appcode, target_api_version, basepath,
                         username, token, salt, query) {
-    var url = basepath + "/search2.view?c=" + appcode
+    var url = basepath + "/search3.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
-            + "&albumCount=200"
+            + "&albumCount=10"
             + "&artistCount=0"
             + "&songCount=0"
             + "&query=" + query;
@@ -170,13 +170,14 @@ function delete_playlist_url(appcode, target_api_version, basepath,
 
 
 function get_albumList_url(appcode, target_api_version, basepath,
-                         username, token, salt, type) {
+                         username, token, salt, type, offset, size) {
     var url = basepath + "/getAlbumList2.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
-            + "&size=100"
+            + "&offset=" + offset
+            + "&size=" + size
             + "&type=" + type
     return url;
 }

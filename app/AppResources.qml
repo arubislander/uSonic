@@ -196,7 +196,7 @@ Object {
         return url;
     }
     function getCoverArtUrl(coverArtId, height) {
-        console.log("assembling cover art url for:", coverArtId);
+        //console.log("assembling cover art url for:", coverArtId);
         var url = Utils.get_coverart_url(
                    client.appcode,
                    client.api_version,
@@ -206,7 +206,7 @@ Object {
                    client.salt,
                    coverArtId,
                    height);
-        console.log(url);
+        //console.log(url);
         return url;
     }
     function getStreamUrl(songId) {
@@ -247,7 +247,7 @@ Object {
         console.log(url);
         return url;
     }
-    function getAlbumListUrl(type) {
+    function getAlbumListUrl(type, pageNum, pageSize) {
         console.log("assembling " + type + " albums url");
         var url = Utils.get_albumList_url(
                     client.appcode,
@@ -256,7 +256,7 @@ Object {
                     client.username,
                     client.token,
                     client.salt,
-                    type);
+                    type, pageNum*pageSize, pageSize);
         console.log(url);
         return url;
     }

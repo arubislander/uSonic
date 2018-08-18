@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-03 22:05+0000\n"
+"POT-Creation-Date: 2018-07-30 21:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/AlbumsPage.qml:71
+#: ../app/AlbumsPage.qml:114
 msgid "Play album"
 msgstr ""
 
-#: ../app/AlbumsPage.qml:86 ../app/PlayListsPage.qml:93
+#: ../app/AlbumsPage.qml:129 ../app/PlayListsPage.qml:93
 msgid "track"
 msgstr ""
 
-#: ../app/AlbumsPage.qml:86 ../app/PlayListsPage.qml:93
+#: ../app/AlbumsPage.qml:129 ../app/PlayListsPage.qml:93
 msgid "tracks"
 msgstr ""
 

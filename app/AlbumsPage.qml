@@ -19,7 +19,9 @@ Page {
     }
 
     Component.onCompleted: {
-        listview.model.source = appResources.getAlbumListUrl(albumsPage.type);
+        //albumListBuffer.pageSize = listview.height/units.gu(5)+1
+        console.log("pageSize: ", albumListBuffer.pageSize)
+        albumListBuffer.nextBatch()
     }
 
     /*
@@ -37,28 +39,69 @@ Page {
 </subsonic-response>
     */
 
+    XmlListModel {
+        id: albumListBuffer
+        
+        property int pageSize : albumsPage.height/units.gu(8)+1
+        property int currentPage : -1;
+        property bool isLastPage : false;
+
+        signal nextBatch()
+
+        namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
+        query: "//albumList2/album"
+        XmlRole { name: "albumId"; query: "@id/string()" }
+        XmlRole { name: "name"; query: "@name/string()" }
+        XmlRole { name: "artist"; query: "@artist/string()" }
+        XmlRole { name: "songCount"; query: "@songCount/string()" }
+        XmlRole { name: "coverArt"; query: "@coverArt/string()" }
+
+        onStatusChanged: {
+            if (source == "") return
+            isLastPage = count < pageSize
+            if (status == XmlListModel.Ready && count > 0) {
+                for (var i=0; i<count; i++) {
+                    listview.model.append(get(i))
+                }
+            }
+        }
+
+        onNextBatch: {
+            if (!isLastPage) {
+                source=""
+                currentPage++
+                source = appResources.getAlbumListUrl(albumsPage.type, currentPage, pageSize);
+                console.debug("currentPage: ", currentPage)
+            }
+        }
+    }
+
     UbuntuListView {
         id: listview
         anchors.top: newestAlbumsPageHeader.bottom
         anchors.bottom: parent.bottom
         width: parent.width
-        model: XmlListModel {
-            namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
-            query: "//albumList2/album"
-            XmlRole { name: "albumId"; query: "@id/string()" }
-            XmlRole { name: "name"; query: "@name/string()" }
-            XmlRole { name: "artist"; query: "@artist/string()" }
-            XmlRole { name: "songCount"; query: "@songCount/string()" }
-            XmlRole { name: "coverArt"; query: "@coverArt/string()" }
-        }
+        model: ListModel {}
         // let refresh control know when the refresh gets completed
-        pullToRefresh {
-            enabled: true
-            refreshing: model.status === XmlListModel.Loading
-            onRefresh: {
-                model.reload();
+        // pullToRefresh {
+        //     enabled: true
+        //     refreshing: model.status === XmlListModel.Loading
+        //     onRefresh: {
+        //         model.reload();
+        //     }
+        // }
+        onAtYEndChanged : {
+            if (atYEnd) {
+                albumListBuffer.nextBatch();
             }
         }
+        // onAtYBeginningChanged: {
+        //     if (atYBeginning && pageNum > 0) {
+        //         pageNum--
+        //         console.debug("PageNum: ", pageNum)
+        //         albumListBuffer.source = appResources.getAlbumListUrl(albumsPage.type, pageNum, pageSize);
+        //     }
+        // }
         delegate: ListItem {
             height: layout.height +
                     (divider.visible?divider.height:0)
@@ -110,6 +153,22 @@ Page {
                 pageStack.push(Qt.resolvedUrl("AlbumPage.qml"),
                                {appResources: appResources});
             }
+        }
+    }
+    Rectangle {
+        id: waitComponent
+        //color: ""
+        anchors.centerIn: parent
+        height: units.gu(5)
+        width: units.gu(15)
+        border.color: "black" 
+        border.width: 1
+        radius: units.gu(1)
+        antialiasing: true
+        visible: albumListBuffer.status !== XmlListModel.Ready
+        Label {
+            anchors.centerIn: parent
+            text: "Please wait ..."
         }
     }
 }
