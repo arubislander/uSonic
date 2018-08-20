@@ -28,11 +28,10 @@ MainView {
     }
 
     Component.onCompleted: pageStack.push(
-      Qt.resolvedUrl("AlbumsPage.qml"),
-                   {
-                     objectName: "randomAlbums",
-                     appResources: resources,
-                     title: "Random Albums",
-                     type: "random"
-                   })
+        Qt.resolvedUrl("MainPage.qml"),
+            {
+                objectName: "mainPage",
+                appResources: resources,
+                title: "uSonic",
+            })
 }

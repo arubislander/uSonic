@@ -183,15 +183,57 @@ Object {
       res.playlist.addItem(url)
       res.dirty = true;
     }
-    function getSearchUrl(query) {
+    function getRandomSongsUrl(pageSize) {
+        console.log("assembing random songs url");
+        var url = Utils.get_random_songs_url(client.appcode,
+            client.api_version,
+            client.serverUrl,
+            client.username,
+            client.token,
+            client.salt,
+            pageSize);
+        console.log(url)
+        return url
+    }
+
+    function getSearchUrl(type, pageNum, pageSize, query) {
         console.log("assembling search url for query:", query);
-        var url = Utils.get_search_song_url(client.appcode,
-                                       client.api_version,
-                                       client.serverUrl,
-                                       client.username,
-                                       client.token,
-                                       client.salt,
-                                       query);
+        var url;
+        switch(type) {
+            case "album":
+                url = Utils.get_search_album_url(client.appcode,
+                                            client.api_version,
+                                            client.serverUrl,
+                                            client.username,
+                                            client.token,
+                                            client.salt,
+                                            pageNum * pageSize,
+                                            pageSize,
+                                            query);
+                break;
+            case "artist":
+                url = Utils.get_search_artist_url(client.appcode,
+                                            client.api_version,
+                                            client.serverUrl,
+                                            client.username,
+                                            client.token,
+                                            client.salt,
+                                            pageNum * pageSize,
+                                            pageSize,
+                                            query);
+                break;
+            case "song":
+                url = Utils.get_search_song_url(client.appcode,
+                                            client.api_version,
+                                            client.serverUrl,
+                                            client.username,
+                                            client.token,
+                                            client.salt,
+                                            pageNum * pageSize,
+                                            pageSize,
+                                            query);
+                break;
+        }
         console.log(url);
         return url;
     }
@@ -273,6 +315,7 @@ Object {
         console.log(url);
         return url;
     }
+
     function createPlaylist(name, songIds, callback) {
         console.log("creating playlist");
         var url = Utils.create_playlist_url(
@@ -287,6 +330,7 @@ Object {
         console.log(url);
         Utils.webclient_get(url, callback)
     }
+    
     function removePlaylist(playlistId, callback) {
         console.log("removing playlist");
         var url = Utils.delete_playlist_url(

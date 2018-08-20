@@ -1,15 +1,15 @@
 {
-    "name": "@APP_ID@",
-    "description": "Ubuntu client for Subsonic music server.",
+    "name": "usonic.arubislander",
+    "description": "Ubuntu client for Subsonic music server",
     "architecture": "@CLICK_ARCH@",
-    "title": "@APP_NAME@",
+    "title": "uSonic",
     "hooks": {
         "uSonic": {
             "apparmor": "uSonic.apparmor",
-            "desktop": "uSonic.desktop"
+            "desktop":  "uSonic.desktop"
         }
     },
-    "version": "0.6.2",
+    "version": "0.7.1",
     "maintainer": "Terence Sambo <arubislander@zonnet.nl>",
-    "framework": "ubuntu-sdk-15.04.6"
+    "framework" : "ubuntu-sdk-15.04.5"
 }

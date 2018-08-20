@@ -17,136 +17,136 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/AlbumsPage.qml:71
+#: ../qml/AlbumsPage.qml:71
 msgid "Play album"
 msgstr "Reproducir álbum"
 
-#: ../app/AlbumsPage.qml:86 ../app/PlayListsPage.qml:93
+#: ../qml/AlbumsPage.qml:86 ../qml/PlayListsPage.qml:93
 msgid "track"
 msgstr "pista"
 
-#: ../app/AlbumsPage.qml:86 ../app/PlayListsPage.qml:93
+#: ../qml/AlbumsPage.qml:86 ../qml/PlayListsPage.qml:93
 msgid "tracks"
 msgstr "pistas"
 
-#: ../app/AppResources.qml:25 ../app/CurrentPlaylistPage.qml:15
+#: ../qml/AppResources.qml:25 ../qml/CurrentPlaylistPage.qml:15
 msgid "Current Playlist"
 msgstr "Lista de reproducción actual"
 
-#: ../app/AppResources.qml:36
+#: ../qml/AppResources.qml:36
 msgid "Playlists"
 msgstr "Listas de reproducción"
 
-#: ../app/AppResources.qml:48
+#: ../qml/AppResources.qml:48
 msgid "Favourite Albums"
 msgstr "Álbumes favoritos"
 
-#: ../app/AppResources.qml:64
+#: ../qml/AppResources.qml:64
 msgid "Newest Albums"
 msgstr "Álbumes más recientes"
 
-#: ../app/AppResources.qml:79
+#: ../qml/AppResources.qml:79
 msgid "Random Albums"
 msgstr "Álbumes aleatorios"
 
-#: ../app/AppResources.qml:94
+#: ../qml/AppResources.qml:94
 msgid "Recent Albums"
 msgstr "Álbumes recientes"
 
-#: ../app/CurrentPlaylistPage.qml:23
+#: ../qml/CurrentPlaylistPage.qml:23
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../app/CurrentPlaylistPage.qml:35
+#: ../qml/CurrentPlaylistPage.qml:35
 msgid "Clear"
 msgstr "Limpiar"
 
-#: ../app/CurrentPlaylistPage.qml:50
+#: ../qml/CurrentPlaylistPage.qml:50
 msgid "Save ..."
 msgstr "Guardar ..."
 
-#: ../app/CurrentPlaylistPage.qml:62 ../app/SearchPage.qml:15
-#: ../app/SearchPage.qml:32
+#: ../qml/CurrentPlaylistPage.qml:62 ../qml/SearchPage.qml:15
+#: ../qml/SearchPage.qml:32
 msgid "Search"
 msgstr "Buscar"
 
-#: ../app/CurrentPlaylistPage.qml:91 ../app/CurrentPlaylistPage.qml:223
-#: ../app/SavePlaylistPage.qml:62
+#: ../qml/CurrentPlaylistPage.qml:91 ../qml/CurrentPlaylistPage.qml:223
+#: ../qml/SavePlaylistPage.qml:62
 msgid "Save"
 msgstr "Guardar"
 
-#: ../app/CurrentPlaylistPage.qml:158
+#: ../qml/CurrentPlaylistPage.qml:158
 msgid "Overwrite playlist: "
 msgstr "Sobrescribir la lista de reproducción: "
 
-#: ../app/CurrentPlaylistPage.qml:159
+#: ../qml/CurrentPlaylistPage.qml:159
 msgid "Are you sure that you want to overrite?"
 msgstr "¿Seguro que quiere sobrescribir?"
 
-#: ../app/CurrentPlaylistPage.qml:161
+#: ../qml/CurrentPlaylistPage.qml:161
 msgid "Overwrite"
 msgstr "Sobrescribir"
 
-#: ../app/CurrentPlaylistPage.qml:181 ../app/CurrentPlaylistPage.qml:248
-#: ../app/SavePlaylistPage.qml:90
+#: ../qml/CurrentPlaylistPage.qml:181 ../qml/CurrentPlaylistPage.qml:248
+#: ../qml/SavePlaylistPage.qml:90
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../app/CurrentPlaylistPage.qml:192
+#: ../qml/CurrentPlaylistPage.qml:192
 msgid "Clear playlist"
 msgstr "Limpiar la lista de reproducción"
 
-#: ../app/CurrentPlaylistPage.qml:193
+#: ../qml/CurrentPlaylistPage.qml:193
 msgid "There are unsaved changes, clear anyway?"
 msgstr "Hay cambios sin guardar ¿limpiar de todos modos?"
 
-#: ../app/CurrentPlaylistPage.qml:195
+#: ../qml/CurrentPlaylistPage.qml:195
 msgid "Yes"
 msgstr "Sí"
 
-#: ../app/CurrentPlaylistPage.qml:203
+#: ../qml/CurrentPlaylistPage.qml:203
 msgid "No"
 msgstr "No"
 
-#: ../app/CurrentPlaylistPage.qml:214
+#: ../qml/CurrentPlaylistPage.qml:214
 msgid "Save playlist"
 msgstr "Guardar la lista de reproducción"
 
-#: ../app/CurrentPlaylistPage.qml:218 ../app/SavePlaylistPage.qml:35
+#: ../qml/CurrentPlaylistPage.qml:218 ../qml/SavePlaylistPage.qml:35
 msgid "enter playlist name"
 msgstr ""
 "introduzca el nombre de "
 "la lista de reproducción"
 
-#: ../app/PlayListsPage.qml:14
+#: ../qml/PlayListsPage.qml:14
 msgid "PlayLists"
 msgstr "Listas de reproducción"
 
-#: ../app/SavePlaylistPage.qml:9
+#: ../qml/SavePlaylistPage.qml:9
 msgid "Save Playlist"
 msgstr "Guardar lista de reproducción"
 
-#: ../app/SavePlaylistPage.qml:28
+#: ../qml/SavePlaylistPage.qml:28
 msgid "Name:"
 msgstr "Nombre:"
 
-#: ../app/SearchPage.qml:20
+#: ../qml/SearchPage.qml:20
 msgid "search for song or artist"
 msgstr "buscar por canción o artista"
 
-#: ../app/SettingsPage.qml:10
+#: ../qml/SettingsPage.qml:10
 msgid "uSonic Settings"
 msgstr "Configuración de uSonic"
 
-#: ../app/SettingsPage.qml:30
+#: ../qml/SettingsPage.qml:30
 msgid "Server:"
 msgstr "Servidor:"
 
-#: ../app/SettingsPage.qml:40
+#: ../qml/SettingsPage.qml:40
 msgid "Username:"
 msgstr "Nombre de usuario:"
 
-#: ../app/SettingsPage.qml:49
+#: ../qml/SettingsPage.qml:49
 msgid "Password:"
 msgstr "Contraseña:"
 

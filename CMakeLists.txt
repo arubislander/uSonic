@@ -1,83 +1,75 @@
 project(uSonic C CXX)
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.0.0)
 
-# Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
-set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tells QtCreator location and name of the manifest file")
-set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Quick)
-# Find_package(ubuntu-sdk-libs)
 
-#automatically create moc files
+# Automatically create moc files
 set(CMAKE_AUTOMOC ON)
 
-# Figure out the component install path
+# Components PATH
 execute_process(
     COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH
     OUTPUT_VARIABLE ARCH_TRIPLET
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-# set(CLICK_ARCH "all")
-# If you want to add native code to your project, replace the set CLICK_ARCH command
-# with the following part.
-# This command figures out the target architecture for use in the manifest file
-execute_process(
-   COMMAND dpkg-architecture -qDEB_HOST_ARCH
-   OUTPUT_VARIABLE CLICK_ARCH
-   OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-option(INSTALL_TESTS "Install the tests on make install" on)
-
-set(APP_NAME          uSonic)
-set(APP_ID            "usonic.arubislander")
-set(USONIC_DIR        "share/qml/uSonic")
-set(MAIN_QML          "Main.qml")
-set(ICON              "graphics/uSonic.png")
-
-# Set install paths
+set(PROJECT_NAME "uSonic")
+set(FULL_PROJECT_NAME "usonic.arubislander")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
-set(DESKTOP_DIR ${DATA_DIR})
-set(DESKTOP_FILE_NAME "uSonic.desktop")
+set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 
-# This sets the commandline that is executed on the device
-set(EXEC "qmlscene %U ${USONIC_DIR}/${MAIN_QML}")
+# This command figures out the target architecture for use in the manifest file
+execute_process(
+    COMMAND dpkg-architecture -qDEB_HOST_ARCH
+    OUTPUT_VARIABLE CLICK_ARCH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
-# Configures the manifest file. The manifest file describes the click package
-# to the target system. All cmake variables that are defined at this point
-# can be used in the manifest file and will be automatically replaced by cmake
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
-        DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
+install(DIRECTORY qml DESTINATION ${DATA_DIR})
+install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
-install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
-install(FILES "uSonic.apparmor" DESTINATION ${DATA_DIR})
+# Translations
+file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po qml/*.qml qml/*.js)
+list(APPEND I18N_SRC_FILES ${DESKTOP_FILE_NAME}.in.h)
 
-add_subdirectory(app)
-# add_subdirectory(backend)
+find_program(INTLTOOL_MERGE intltool-merge)
+if(NOT INTLTOOL_MERGE)
+    message(FATAL_ERROR "Could not find intltool-merge, please install the intltool package")
+endif()
+find_program(INTLTOOL_EXTRACT intltool-extract)
+if(NOT INTLTOOL_EXTRACT)
+    message(FATAL_ERROR "Could not find intltool-extract, please install the intltool package")
+endif()
+
+add_custom_target(${DESKTOP_FILE_NAME} ALL
+    COMMENT "Merging translations into ${DESKTOP_FILE_NAME}..."
+    COMMAND LC_ALL=C ${INTLTOOL_MERGE} -d -u ${CMAKE_SOURCE_DIR}/po ${CMAKE_SOURCE_DIR}/${DESKTOP_FILE_NAME}.in ${DESKTOP_FILE_NAME}
+    COMMAND sed -i 's/${PROJECT_NAME}-//g' ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME}
+)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DATA_DIR})
+
 add_subdirectory(po)
 
-#add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-#                    COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-#                    DEPENDS Usonicbackend Usonicbackend-qmldir
-#                    WORKING_DIRECTORY ./app)
+# Make source files visible in qtcreator
+file(GLOB_RECURSE PROJECT_SRC_FILES
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    qml/*.qml
+    qml/*.js
+    *.json
+    *.json.in
+    *.apparmor
+    *.desktop.in
+)
 
-#add_custom_target("check"
-#                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/backend/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-#                    COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-#                    DEPENDS Usonicbackend Usonicbackend-qmldir
-#                    WORKING_DIRECTORY ./app)
-
-#add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/uSonic.qml
-#                    DEPENDS Usonicbackend Usonicbackend-qmldir
-#                    WORKING_DIRECTORY ./app)
-
-# Normally QtCreator would only show files that are part of a target, but we need it to show also files
-# that are not compiled. Therefore we add a custom target that just does nothing but list the files
-add_custom_target("usonic_ClickFiles" ALL SOURCES "uSonic.apparmor" "manifest.json.in")
+add_custom_target(${PROJECT_NAME}_FILES ALL SOURCES ${PROJECT_SRC_FILES})

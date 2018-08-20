@@ -95,8 +95,19 @@ function get_index_url(appcode, target_api_version, basepath,
     return url;
 }
 
+function get_random_songs_url(appcode, target_api_version, basepath,
+                        username, token, salt, count) {
+        var url = basepath + "/getRandomSongs.view?c=" + appcode
+                + "&u=" + username
+                + "&t=" + token
+                + "&s=" + salt
+                + "&v=" + target_api_version
+                + "&size="+count
+        return url;
+}
+
 function get_search_song_url(appcode, target_api_version, basepath,
-                        username, token, salt, query) {
+                        username, token, salt, offset, count, query) {
     var url = basepath + "/search3.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
@@ -104,23 +115,40 @@ function get_search_song_url(appcode, target_api_version, basepath,
             + "&v=" + target_api_version
             + "&albumCount=0"
             + "&artistCount=0"
-            + "&songCount=10"
+            + "&songCount="+count
+            + "&songOffset="+offset
             + "&query=" + query;
     return url;
 }
 
 function get_search_album_url(appcode, target_api_version, basepath,
-                        username, token, salt, query) {
+                        username, token, salt, offset, count, query) {
     var url = basepath + "/search3.view?c=" + appcode
             + "&u=" + username
             + "&t=" + token
             + "&s=" + salt
             + "&v=" + target_api_version
-            + "&albumCount=10"
+            + "&albumCount=" + count
+            + "&albumOffset=" + offset 
             + "&artistCount=0"
             + "&songCount=0"
             + "&query=" + query;
     return url;
+}
+
+function get_search_artist_url(appcode, target_api_version, basepath,
+        username, token, salt, offset, count, query) {
+        var url = basepath + "/search3.view?c=" + appcode
+                + "&u=" + username
+                + "&t=" + token
+                + "&s=" + salt
+                + "&v=" + target_api_version
+                + "&albumCount=0"
+                + "&artistCount=" + count
+                + "&artistOffset=" + offset
+                + "&songCount=0"
+                + "&query=" + query;
+        return url;
 }
 
 function get_playlists_url(appcode, target_api_version, basepath,
