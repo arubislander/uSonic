@@ -10,7 +10,7 @@ Page {
     visible: false
     header: PageHeader {
         id: mainPageHeader
-        title: "uSonic"
+        title: "uSonic" + (loader.item.title ? " - " + loader.item.title : "")
         leadingActionBar {
             numberOfSlots: -1
         }
@@ -36,6 +36,7 @@ Page {
                     mainPageHeader.leadingActionBar.numberOfSlots = item.leadingActions.length
                     mainPageHeader.trailingActionBar.actions = item.trailingActions.reverse()
                     mainPageHeader.trailingActionBar.numberOfSlots = item.trailingActions.length
+                    if (viewState.sharedListModel) { viewState.sharedListModel.clear() }
                     break;
             }
         }

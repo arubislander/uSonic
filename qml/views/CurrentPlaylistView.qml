@@ -6,6 +6,7 @@ import QtQuick.XmlListModel 2.0
 
 ViewBase {
     id: currentPlayListView
+    title: appResources.currentPlaylist
 
     Component.onCompleted: {
         leadingActions = []

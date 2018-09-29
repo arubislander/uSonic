@@ -10,11 +10,17 @@ ViewBase {
         width: parent.width - units.gu(10)
         height: parent.height - units.gu(10)
         spacing: units.gu(2)
-        Image {
+        Item {
+            width: units.gu(1)
+            height: parent.height / 5
+        }
+        UbuntuShape {
             width: (parent.height > parent.width ? parent.width : parent.height) / 3
             height: width
             anchors.horizontalCenter: parent.horizontalCenter
-            source: Qt.resolvedUrl("../../assets/uSonic.png")
+            source: Image {
+                source: Qt.resolvedUrl("../../assets/uSonic.png")
+            }
         }
         Label {
             anchors.horizontalCenter: parent.horizontalCenter

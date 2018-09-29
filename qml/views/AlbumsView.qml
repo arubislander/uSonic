@@ -3,14 +3,17 @@ import Ubuntu.Components 1.3
 import QtMultimedia 5.6
 import QtQuick.XmlListModel 2.0
 
+import "../delegates"
+
 ViewBase {
     id: albumsView
+    title: "Albums"
 
     Component.onCompleted: {
         leadingActions = [cancelSearch]
         trailingActions = [searchNavigateAction, searchAction]
         mainPageHeader.contents = Qt.binding(function(){return viewState.searching ? searchTextField : null})
-    }
+    } 
 
     Action{
         id: searchNavigateAction
@@ -64,7 +67,7 @@ ViewBase {
     XmlListModel {
         id: albumListBuffer
         
-        readonly property int pageSize : 10
+        readonly property int pageSize : 15
         property int currentPage : 0;
         property bool isLastPage : false;
 
@@ -87,9 +90,15 @@ ViewBase {
         }
     }
 
-    UbuntuListView {
+    GridView {
         id: listview
+        visible: true
+        property int minCellWidth : units.gu(20)
+        cellWidth: parent.width < minCellWidth ? minCellWidth : parent.width / (Math.round(parent.width / minCellWidth))
+        cellHeight: cellWidth
+
         anchors.fill: parent
+        
         model: viewState.sharedListModel
         onAtYEndChanged : {
             if (atYEnd) {
@@ -97,59 +106,26 @@ ViewBase {
             }
         }
         delegate: ListItem {
-            height: layout.height +
-                    (divider.visible?divider.height:0)
-            
-            trailingActions: ListItemActions {
-              id: songListItemActions
-              actions: [
-                Action {
-                  id: addToPlaylist
-                  iconName: "add-to-playlist"
-                  text: i18n.tr("Play album")
-                  onTriggered: {
-                    appResources.clearPlaylist()
-                    appResources.itemsView.query = "//album/song"
-                    appResources.itemsView.source =
-                            appResources.getAlbumUrl(model.albumId);
-                  }
-                }
-              ]
-            }
+            id: albumDelegate
+            width: listview.cellWidth; height: listview.cellHeight
 
-            ListItemLayout {
-                id: layout
-                title.text: model.name
-                subtitle.text: model.artist
-                summary.text: songCount + " " +
+            Card {
+                imageSource: appResources.getCoverArtUrl(model.coverArt,
+                                            Math.round(parent.height))
+                title: model.name
+                subtitle: model.artist
+                info: songCount + " " +
                     (songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
-                UbuntuShape {
-                    height: appResources.shapeSize
-                    width : height
-                    radius: "medium"
-                    aspect:  UbuntuShape.Inset
-                    SlotsLayout.position: SlotsLayout.Leading
-                    source: Image {
-                            id: imgListItem
-                            anchors.fill: parent
-                            source: appResources.getCoverArtUrl(model.coverArt,
-                                                           imgListItem.height)
-                    }
+
+                onClicked: {
+                    appResources.currentAlbum = model.name;
+                    appResources.currentAlbumId = model.albumId;
+                    loader.setSource(Qt.resolvedUrl("AlbumView.qml"))
                 }
-                Icon {
-                    height: appResources.iconSize
-                    width: height
-                    name: "next"
-                    SlotsLayout.position: SlotsLayout.Trailing
-                }
-            }
-            onClicked: {
-                appResources.currentAlbum = model.name;
-                appResources.currentAlbumId = model.albumId;
-                loader.setSource(Qt.resolvedUrl("AlbumView.qml"))
             }
         }
     }
+
 
     // functions
     function resetBatch() {

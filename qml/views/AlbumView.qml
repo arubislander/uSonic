@@ -5,6 +5,7 @@ import QtQuick.XmlListModel 2.0
 
 ViewBase {
     id: albumView
+    title: appResources.currentAlbum
 
     Component.onCompleted: {
         leadingActions = [ backAction ]

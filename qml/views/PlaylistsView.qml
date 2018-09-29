@@ -7,6 +7,8 @@ import QtQuick.XmlListModel 2.0
 ViewBase{
     id: playlistsView
 
+    title: "Playlists"
+
     Component.onCompleted: {
         listview.model.source = appResources.getPlaylistsUrl();
     }

@@ -5,4 +5,5 @@ Item {
     property var leadingActions:[]
     property var trailingActions: []
     //property var headerContent: null
+    property string title: ""
 }

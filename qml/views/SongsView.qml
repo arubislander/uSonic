@@ -5,6 +5,8 @@ import QtQuick.XmlListModel 2.0
 
 ViewBase {
     id: songView
+    
+    title: "Songs"
 
     Component.onCompleted: {
         leadingActions = [cancelSearch]
