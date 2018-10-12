@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-29 10:30+0000\n"
+"POT-Creation-Date: 2018-10-05 12:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,12 +119,12 @@ msgid "Play album"
 msgstr ""
 
 #: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:64 ../qml/views/AlbumsView.qml:118
+#: ../qml/views/PlaylistsView.qml:73 ../qml/views/AlbumsView.qml:118
 msgid "track"
 msgstr ""
 
 #: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:64 ../qml/views/AlbumsView.qml:118
+#: ../qml/views/PlaylistsView.qml:73 ../qml/views/AlbumsView.qml:118
 msgid "tracks"
 msgstr ""
 

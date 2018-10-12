@@ -114,8 +114,8 @@ ViewBase {
                                             Math.round(parent.height))
                 title: model.name
                 subtitle: model.artist
-                info: songCount + " " +
-                    (songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
+                info: model.songCount + " " +
+                    (model.songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
 
                 onClicked: {
                     appResources.currentAlbum = model.name;

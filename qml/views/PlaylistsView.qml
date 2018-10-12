@@ -4,6 +4,8 @@ import Ubuntu.Components.Popups 1.3
 import QtMultimedia 5.6
 import QtQuick.XmlListModel 2.0
 
+import "../delegates"
+
 ViewBase{
     id: playlistsView
 
@@ -27,8 +29,13 @@ ViewBase{
             }]
     }
 
-    UbuntuListView {
+    GridView {
         id: listview
+        visible: true
+        property int minCellWidth : units.gu(20)
+        cellWidth: parent.width < minCellWidth ? minCellWidth : parent.width / (Math.round(parent.width / minCellWidth))
+        cellHeight: cellWidth
+
         anchors.fill: parent
         model: XmlListModel {
             namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
@@ -41,13 +48,13 @@ ViewBase{
         }
 
         // let refresh control know when the refresh gets completed
-        pullToRefresh {
-            enabled: true
-            refreshing: model.status === XmlListModel.Loading
-            onRefresh: {
-                model.reload();
-            }
-        }
+        // pullToRefresh {
+        //     enabled: true
+        //     refreshing: model.status === XmlListModel.Loading
+        //     onRefresh: {
+        //         model.reload();
+        //     }
+        // }
 
         delegate: ListItem {
 
@@ -56,29 +63,16 @@ ViewBase{
 
             leadingActions: playlistLeadingItemActions
 
-            ListItemLayout {
-                id: layout
-                title.text: model.name
-                subtitle.text: model.comment
-                summary.text: songCount + " " +
-                    (songCount === "1" ? i18n.tr("track") : i18n.tr("tracks"))
-                UbuntuShape {
-                    height: appResources.shapeSize
-                    width : height
-                    radius: "medium"
-                    aspect:  UbuntuShape.Inset
-                    SlotsLayout.position: SlotsLayout.Leading
-                    source: Image {
-                            id: imgListItem
-                            anchors.fill: parent
-                            source: appResources.getCoverArtUrl(
-                                        model.coverArt,
-                                        imgListItem.height)
-                        }
-                }
-            }
+            Card {
+                
+                imageSource: appResources.getCoverArtUrl(model.coverArt,
+                                            Math.round(parent.height))
+                title: model.name
+                subtitle: model.comment
+                info: model.songCount + " " +
+                    (model.songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
 
-            onClicked: {
+                onClicked: {
                 appResources.currentPlaylist   = model.name;
                 appResources.currentPlaylistId = model.playlistId;
                 appResources.dirty = false;
@@ -87,6 +81,7 @@ ViewBase{
                         appResources.getPlaylistUrl(model.playlistId);
 
                 loader.setSource(Qt.resolvedUrl("CurrentPlaylistView.qml"))
+                }
             }
         }
     }
