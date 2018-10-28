@@ -7,7 +7,7 @@ import "../delegates"
 
 ViewBase {
     id: albumsView
-    title: "Albums"
+    title: i18n.tr("Albums")
 
     Component.onCompleted: {
         leadingActions = [cancelSearch]
@@ -108,6 +108,23 @@ ViewBase {
         delegate: ListItem {
             id: albumDelegate
             width: listview.cellWidth; height: listview.cellHeight
+
+            trailingActions: ListItemActions {
+              id: songListItemActions
+              actions: [
+                Action {
+                  id: addToPlaylist
+                  iconName: "add-to-playlist"
+                  text: i18n.tr("Play album")
+                  onTriggered: {
+                    appResources.clearPlaylist()
+                    appResources.itemsView.query = "//album/song"
+                    appResources.itemsView.source =
+                            appResources.getAlbumUrl(model.albumId);
+                  }
+                }
+              ]
+            }
 
             Card {
                 imageSource: appResources.getCoverArtUrl(model.coverArt,

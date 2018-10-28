@@ -9,7 +9,7 @@ import "../delegates"
 ViewBase{
     id: playlistsView
 
-    title: "Playlists"
+    title: i18n.tr("Playlists")
 
     Component.onCompleted: {
         listview.model.source = appResources.getPlaylistsUrl();
@@ -58,8 +58,7 @@ ViewBase{
 
         delegate: ListItem {
 
-            height: layout.height +
-                    (divider.visible ? divider.height : 0)
+            width: listview.cellWidth; height: listview.cellHeight
 
             leadingActions: playlistLeadingItemActions
 

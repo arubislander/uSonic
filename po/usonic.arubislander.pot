@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 12:19+0000\n"
+"POT-Creation-Date: 2018-10-28 17:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Current Playlist"
 msgstr ""
 
-#: ../qml/legacy/CurrentPlaylistPage.qml:23
+#: ../qml/legacy/CurrentPlaylistPage.qml:23 ../qml/views/SettingsView.qml:8
 msgid "Settings"
 msgstr ""
 
@@ -114,17 +114,17 @@ msgstr ""
 msgid "search for song or artist"
 msgstr ""
 
-#: ../qml/legacy/AlbumsPage.qml:114
+#: ../qml/legacy/AlbumsPage.qml:114 ../qml/views/AlbumsView.qml:118
 msgid "Play album"
 msgstr ""
 
 #: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:73 ../qml/views/AlbumsView.qml:118
+#: ../qml/views/PlaylistsView.qml:72 ../qml/views/AlbumsView.qml:135
 msgid "track"
 msgstr ""
 
 #: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:73 ../qml/views/AlbumsView.qml:118
+#: ../qml/views/PlaylistsView.qml:72 ../qml/views/AlbumsView.qml:135
 msgid "tracks"
 msgstr ""
 
@@ -132,15 +132,15 @@ msgstr ""
 msgid "uSonic Settings"
 msgstr ""
 
-#: ../qml/legacy/SettingsPage.qml:30
+#: ../qml/legacy/SettingsPage.qml:30 ../qml/views/SettingsView.qml:62
 msgid "Server:"
 msgstr ""
 
-#: ../qml/legacy/SettingsPage.qml:40
+#: ../qml/legacy/SettingsPage.qml:40 ../qml/views/SettingsView.qml:72
 msgid "Username:"
 msgstr ""
 
-#: ../qml/legacy/SettingsPage.qml:49
+#: ../qml/legacy/SettingsPage.qml:49 ../qml/views/SettingsView.qml:81
 msgid "Password:"
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "PlayLists"
 msgstr ""
 
-#: ../qml/AppResources.qml:36
+#: ../qml/AppResources.qml:36 ../qml/views/PlaylistsView.qml:12
 msgid "Playlists"
 msgstr ""
 
@@ -168,6 +168,10 @@ msgstr ""
 msgid "Recent Albums"
 msgstr ""
 
+#: ../qml/views/AlbumsView.qml:10
+msgid "Albums"
+msgstr ""
+
 #: ../qml/views/AlbumsView.qml:43 ../qml/views/SongsView.qml:42
 msgid "Find"
 msgstr ""
@@ -178,6 +182,10 @@ msgstr ""
 
 #: ../qml/views/AlbumView.qml:18
 msgid "Back"
+msgstr ""
+
+#: ../qml/views/SongsView.qml:9
+msgid "Songs"
 msgstr ""
 
 #: ../qml/views/SongsView.qml:54

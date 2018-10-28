@@ -54,6 +54,7 @@ Page {
                     objectName: "settings"
                     // text: i18n.tr("Settings")
                     iconName: "settings"
+                    onTriggered: loader.setSource(Qt.resolvedUrl("views/SettingsView.qml"))
                 },
                 Action {
                     id: now_playing
@@ -74,6 +75,7 @@ Page {
                     objectName: "artists"
                     // text: i18n.tr("Artists")
                     iconName: "contact"
+                    visible: false
                 },
                 Action {
                     id: albums

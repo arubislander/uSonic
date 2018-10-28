@@ -6,6 +6,19 @@ Item {
     property var account: accountDocument
     property var recentSearch: recentSearchDocument
 
+    function apply(server, username, password ) {
+        account.contents = {
+                        "server" : server,
+                        "username" : username,
+                        "password" : password 
+                        }        
+        settingsUpdated(server, username, password )
+    }
+    function  revert() {
+        settingsUpdated(  account.contents.server
+                        , account.contents.username
+                        , account.contents.password )
+    }
     signal settingsUpdated( string server, string username, string password )
 
     U1db.Database {

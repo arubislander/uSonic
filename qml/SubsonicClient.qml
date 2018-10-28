@@ -26,6 +26,14 @@ Item {
 
     signal ready()
 
+    function applySettings(server, username, password) {
+        settings.apply(server, username, password)
+    }
+
+    function revertSettings() {
+        settings.revert()
+    }
+
     function ping() {
         var url = Utils.get_ping_url(appcode,
                                      api_version,
