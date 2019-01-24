@@ -2,7 +2,9 @@ import QtQuick 2.4
 import QtMultimedia 5.6
 import Ubuntu.Components 1.3
 import QtQuick.XmlListModel 2.0
+import QtQuick.LocalStorage 2.0
 import "utils.js" as Utils
+import "usonic.js" as UsonicJS
 
 
 Object {
@@ -162,25 +164,27 @@ Object {
 
     function clearPlaylist() {
         console.log("Clearing playlist")
-        res.playlist.clear()
-        res.playlistModel.clear()
+        UsonicJS.clearQueue();
+        res.playlist.clear();
+        res.playlistModel.clear();
         res.dirty = false;
         res.currentPlaylist = "";
         res.currentPlaylistId = "";
     }
     function addToPlaylist (model) {
-      var url = res.getStreamUrl(model.songId)
-      var coverart = res.getCoverArtUrl(model.coverArt, res.shapeSize)
-
+      var url = res.getStreamUrl(model.songId);
+      var coverart = res.getCoverArtUrl(model.coverArt, res.shapeSize);
+      UsonicJS.addToQueue(model.songId);
+    
       res.playlistModel.append({
            "songId" : model.songId,
            "playlistIndex": res.playlist.itemCount,
            "title":model.title,
            "album":model.album,
            "artist":model.artist,
-           "coverArt":coverart})
+           "coverArt":coverart});
 
-      res.playlist.addItem(url)
+      res.playlist.addItem(url);
       res.dirty = true;
     }
     function getRandomSongsUrl(pageSize) {
@@ -192,8 +196,8 @@ Object {
             client.token,
             client.salt,
             pageSize);
-        console.log(url)
-        return url
+        console.log(url);
+        return url;
     }
 
     function getSearchUrl(type, pageNum, pageSize, query) {
@@ -237,8 +241,19 @@ Object {
         console.log(url);
         return url;
     }
+
     function getCoverArtUrl(coverArtId, height) {
         //console.log("assembling cover art url for:", coverArtId);
+        if (coverArtId === "" || coverArtId === null || coverArtId === undefined)
+            return "../../assets/coverArt.png";
+
+        var item = UsonicJS.getCoverArt(coverArtId);
+        console.debug ("retrieved coverart: " + item + ", for " + coverArtId );
+
+        if (item ) {
+            console.debug("* Found in cache!");
+            return item.path;
+        }
         var url = Utils.get_coverart_url(
                    client.appcode,
                    client.api_version,
@@ -248,6 +263,15 @@ Object {
                    client.salt,
                    coverArtId,
                    height);
+
+        //downloader.downloadQueue.push({
+        // downloader.download({
+        //     "type": "CoverArt",
+        //     "id": coverArtId,
+        //     "url": url,
+        //     "title": coverArtId
+        // }, false);
+
         //console.log(url);
         return url;
     }
@@ -344,4 +368,10 @@ Object {
         console.log(url);
         Utils.webclient_get(url, callback)
     }
+
+    Downloader {
+        id: downloader
+    }
+
+
 }

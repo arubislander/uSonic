@@ -13,12 +13,17 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "clickable device",
             "type": "shell",
-            "command": "clickable",
+            "command": "clickable && clickable logs",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "problemMatcher": []
         }
     ]

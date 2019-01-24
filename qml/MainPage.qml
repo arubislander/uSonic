@@ -7,6 +7,10 @@ Page {
     id: mainPage
     property AppResources appResources
 
+    property Action lastAction
+    property Action selectedAction
+    property Action tmp : selectedAction
+
     visible: false
     header: PageHeader {
         id: mainPageHeader
@@ -51,27 +55,35 @@ Page {
             actions : [
                 Action {
                     id: settings
+                    property bool selected : false;
                     objectName: "settings"
                     // text: i18n.tr("Settings")
                     iconName: "settings"
-                    onTriggered: loader.setSource(Qt.resolvedUrl("views/SettingsView.qml"))
+                    onTriggered: selectedAction = this
+                },
+                Action {
+                    id: filler
+                    enabled: false
                 },
                 Action {
                     id: now_playing
+                    property bool selected : false;
                     objectName: "now_playing"
                     // text: i18n.tr("Now playing")
                     iconName: "multimedia-player-symbolic"
-                    onTriggered: loader.setSource(Qt.resolvedUrl("views/CurrentPlaylistView.qml"))
+                    onTriggered: selectedAction = this
                 },
                 Action {
                     id: playlists
+                    property bool selected : false;
                     objectName: "playlists"
                     // text: i18n.tr("Artists")
                     iconName: "media-playlist"
-                    onTriggered: loader.setSource(Qt.resolvedUrl("views/PlaylistsView.qml"))
+                    onTriggered: selectedAction = this
                 },
                 Action {
                     id: artists
+                    property bool selected : false;
                     objectName: "artists"
                     // text: i18n.tr("Artists")
                     iconName: "contact"
@@ -79,26 +91,54 @@ Page {
                 },
                 Action {
                     id: albums
+                    property bool selected : false;
                     objectName: "albums"
                     // text: i18n.tr("Albums")
                     iconName: "media-optical-symbolic"
-                    onTriggered: loader.setSource(Qt.resolvedUrl("views/AlbumsView.qml"))
+                    onTriggered: selectedAction = this
                 },
                 Action {
                     id: songs
+                    property bool selected : false;
                     objectName: "songs"
                     // text: i18n.tr("Songs")
                     iconName: "stock_music"
-                    onTriggered: loader.setSource(Qt.resolvedUrl("views/SongsView.qml"))
+                    onTriggered: selectedAction = this
                 }
             ] 
             numberOfSlots: 6
             delegate: Button {
                 action: modelData
                 height: footer.height
-                width: footer.width/6 - units.gu(0.5)
-                strokeColor: UbuntuColors.porcelain
+                width: modelData.enabled ? footer.width/6 - units.gu(0.5) : footer.width/5 - units.gu(1)
+                color: modelData.selected ? UbuntuColors.lightGrey : UbuntuColors.porcelain
+                //strokeColor: UbuntuColors.porcelain
             }
+        }
+    }
+
+    onSelectedActionChanged: {
+        lastAction = tmp;
+        tmp = selectedAction;
+        if (lastAction != null)
+            lastAction.selected= false;
+        selectedAction.selected = true;
+        switch (selectedAction.objectName) {
+            case "settings": 
+                loader.setSource(Qt.resolvedUrl("views/SettingsView.qml"));
+                break;
+            case "now_playing":
+                loader.setSource(Qt.resolvedUrl("views/CurrentPlaylistView.qml"));
+                break;
+            case "playlists":
+                loader.setSource(Qt.resolvedUrl("views/PlaylistsView.qml"));
+                break;
+            case "albums":
+                loader.setSource(Qt.resolvedUrl("views/AlbumsView.qml"));
+                break;
+            case "songs":
+                loader.setSource(Qt.resolvedUrl("views/SongsView.qml"));
+                break;            
         }
     }
 

@@ -1,5 +1,6 @@
 {
     "policy_groups": [
+        "connectivity",
         "networking",
         "audio"
     ],

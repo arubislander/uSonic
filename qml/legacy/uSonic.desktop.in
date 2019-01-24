@@ -1,8 +1,0 @@
-[Desktop Entry]
-_Name=uSonic
-Comment=Ubuntu client for Subsonic music server.
-Exec=@EXEC@
-Icon=@ICON@
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true

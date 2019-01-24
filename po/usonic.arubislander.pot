@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 17:12+0000\n"
+"POT-Creation-Date: 2019-01-24 20:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,159 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/legacy/SavePlaylistPage.qml:9
-msgid "Save Playlist"
-msgstr ""
-
-#: ../qml/legacy/SavePlaylistPage.qml:28
-msgid "Name:"
-msgstr ""
-
-#: ../qml/legacy/SavePlaylistPage.qml:35
-#: ../qml/legacy/CurrentPlaylistPage.qml:218
-#: ../qml/views/CurrentPlaylistView.qml:179
-msgid "enter playlist name"
-msgstr ""
-
-#: ../qml/legacy/SavePlaylistPage.qml:62
-#: ../qml/legacy/CurrentPlaylistPage.qml:91
-#: ../qml/legacy/CurrentPlaylistPage.qml:223
-#: ../qml/views/CurrentPlaylistView.qml:184
-msgid "Save"
-msgstr ""
-
-#: ../qml/legacy/SavePlaylistPage.qml:90
-#: ../qml/legacy/CurrentPlaylistPage.qml:181
-#: ../qml/legacy/CurrentPlaylistPage.qml:248 ../qml/views/AlbumsView.qml:32
-#: ../qml/views/CurrentPlaylistView.qml:142
-#: ../qml/views/CurrentPlaylistView.qml:210 ../qml/views/SongsView.qml:31
-msgid "Cancel"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:15 ../qml/AppResources.qml:25
+#: ../qml/AppResources.qml:27
 msgid "Current Playlist"
 msgstr ""
 
-#: ../qml/legacy/CurrentPlaylistPage.qml:23 ../qml/views/SettingsView.qml:8
-msgid "Settings"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:35
-#: ../qml/views/CurrentPlaylistView.qml:21
-msgid "Clear"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:50
-#: ../qml/views/CurrentPlaylistView.qml:37
-msgid "Save ..."
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:62 ../qml/legacy/SearchPage.qml:15
-#: ../qml/legacy/SearchPage.qml:32 ../qml/views/AlbumsView.qml:22
-#: ../qml/views/SongsView.qml:21
-msgid "Search"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:158
-#: ../qml/views/CurrentPlaylistView.qml:121
-msgid "Overwrite playlist: "
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:159
-#: ../qml/views/CurrentPlaylistView.qml:122
-msgid "Are you sure that you want to overrite?"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:161
-#: ../qml/views/CurrentPlaylistView.qml:124
-msgid "Overwrite"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:192
-#: ../qml/views/CurrentPlaylistView.qml:153
-msgid "Clear playlist"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:193
-#: ../qml/views/CurrentPlaylistView.qml:154
-msgid "There are unsaved changes, clear anyway?"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:195
-#: ../qml/views/CurrentPlaylistView.qml:156
-msgid "Yes"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:203
-#: ../qml/views/CurrentPlaylistView.qml:164
-msgid "No"
-msgstr ""
-
-#: ../qml/legacy/CurrentPlaylistPage.qml:214
-#: ../qml/views/CurrentPlaylistView.qml:175
-msgid "Save playlist"
-msgstr ""
-
-#: ../qml/legacy/SearchPage.qml:20
-msgid "search for song or artist"
-msgstr ""
-
-#: ../qml/legacy/AlbumsPage.qml:114 ../qml/views/AlbumsView.qml:118
-msgid "Play album"
-msgstr ""
-
-#: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:72 ../qml/views/AlbumsView.qml:135
-msgid "track"
-msgstr ""
-
-#: ../qml/legacy/AlbumsPage.qml:129 ../qml/legacy/PlayListsPage.qml:93
-#: ../qml/views/PlaylistsView.qml:72 ../qml/views/AlbumsView.qml:135
-msgid "tracks"
-msgstr ""
-
-#: ../qml/legacy/SettingsPage.qml:10
-msgid "uSonic Settings"
-msgstr ""
-
-#: ../qml/legacy/SettingsPage.qml:30 ../qml/views/SettingsView.qml:62
-msgid "Server:"
-msgstr ""
-
-#: ../qml/legacy/SettingsPage.qml:40 ../qml/views/SettingsView.qml:72
-msgid "Username:"
-msgstr ""
-
-#: ../qml/legacy/SettingsPage.qml:49 ../qml/views/SettingsView.qml:81
-msgid "Password:"
-msgstr ""
-
-#: ../qml/legacy/PlayListsPage.qml:14
-msgid "PlayLists"
-msgstr ""
-
-#: ../qml/AppResources.qml:36 ../qml/views/PlaylistsView.qml:12
+#: ../qml/AppResources.qml:38 ../qml/views/PlaylistsView.qml:12
 msgid "Playlists"
 msgstr ""
 
-#: ../qml/AppResources.qml:48
+#: ../qml/AppResources.qml:50
 msgid "Favourite Albums"
 msgstr ""
 
-#: ../qml/AppResources.qml:64
+#: ../qml/AppResources.qml:66
 msgid "Newest Albums"
 msgstr ""
 
-#: ../qml/AppResources.qml:79
+#: ../qml/AppResources.qml:81
 msgid "Random Albums"
 msgstr ""
 
-#: ../qml/AppResources.qml:94
+#: ../qml/AppResources.qml:96
 msgid "Recent Albums"
+msgstr ""
+
+#: ../qml/views/AlbumView.qml:18
+msgid "Back"
 msgstr ""
 
 #: ../qml/views/AlbumsView.qml:10
 msgid "Albums"
+msgstr ""
+
+#: ../qml/views/AlbumsView.qml:22 ../qml/views/SongsView.qml:21
+msgid "Search"
+msgstr ""
+
+#: ../qml/views/AlbumsView.qml:32 ../qml/views/CurrentPlaylistView.qml:142
+#: ../qml/views/CurrentPlaylistView.qml:210 ../qml/views/SongsView.qml:31
+msgid "Cancel"
 msgstr ""
 
 #: ../qml/views/AlbumsView.qml:43 ../qml/views/SongsView.qml:42
@@ -180,8 +66,80 @@ msgstr ""
 msgid "search for album name"
 msgstr ""
 
-#: ../qml/views/AlbumView.qml:18
-msgid "Back"
+#: ../qml/views/AlbumsView.qml:118
+msgid "Play album"
+msgstr ""
+
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+msgid "track"
+msgstr ""
+
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+msgid "tracks"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:21
+msgid "Clear"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:37
+msgid "Save ..."
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:121
+msgid "Overwrite playlist: "
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:122
+msgid "Are you sure that you want to overrite?"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:124
+msgid "Overwrite"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:153
+msgid "Clear playlist"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:154
+msgid "There are unsaved changes, clear anyway?"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:156
+msgid "Yes"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:164
+msgid "No"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:175
+msgid "Save playlist"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:179
+msgid "enter playlist name"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:184
+msgid "Save"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:8
+msgid "Settings"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:62
+msgid "Server:"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:72
+msgid "Username:"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:81
+msgid "Password:"
 msgstr ""
 
 #: ../qml/views/SongsView.qml:9

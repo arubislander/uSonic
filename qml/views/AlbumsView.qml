@@ -129,7 +129,7 @@ ViewBase {
             Card {
                 imageSource: appResources.getCoverArtUrl(model.coverArt,
                                             Math.round(parent.height))
-                title: model.name
+                title: model.name ? model.name : ""
                 subtitle: model.artist
                 info: model.songCount + " " +
                     (model.songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
