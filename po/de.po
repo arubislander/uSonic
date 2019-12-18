@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the usonic.arubislander package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: usonic.arubislander\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-16 19:16+0000\n"
+"PO-Revision-Date: 2019-12-18 20:32+0000\n"
+"Last-Translator: Stefan Kalb <stefan.kalb@gmx.ch>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/AppResources.qml:27
+msgid "Current Playlist"
+msgstr "Aktuelle Playlist"
+
+#: ../qml/AppResources.qml:38 ../qml/views/PlaylistsView.qml:12
+msgid "Playlists"
+msgstr "Playlists"
+
+#: ../qml/AppResources.qml:50
+msgid "Favourite Albums"
+msgstr "Beliebteste Alben"
+
+#: ../qml/AppResources.qml:66
+msgid "Newest Albums"
+msgstr "Neueste Alben"
+
+#: ../qml/AppResources.qml:81
+msgid "Random Albums"
+msgstr "zufällige Alben"
+
+#: ../qml/AppResources.qml:96
+msgid "Recent Albums"
+msgstr "aktuelle Alben"
+
+#: ../qml/views/AlbumView.qml:18
+msgid "Back"
+msgstr "Zurück"
+
+#: ../qml/views/AlbumsView.qml:10
+msgid "Albums"
+msgstr "Alben"
+
+#: ../qml/views/AlbumsView.qml:22 ../qml/views/SongsView.qml:21
+msgid "Search"
+msgstr "Suchen"
+
+#: ../qml/views/AlbumsView.qml:32 ../qml/views/CurrentPlaylistView.qml:142
+#: ../qml/views/CurrentPlaylistView.qml:210 ../qml/views/SongsView.qml:31
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ../qml/views/AlbumsView.qml:43 ../qml/views/SongsView.qml:42
+msgid "Find"
+msgstr "Finden"
+
+#: ../qml/views/AlbumsView.qml:55
+msgid "search for album name"
+msgstr "Nach Album Name suchen"
+
+#: ../qml/views/AlbumsView.qml:118
+msgid "Play album"
+msgstr "Album abspielen"
+
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+msgid "track"
+msgstr "Stück"
+
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+msgid "tracks"
+msgstr "Stücke"
+
+#: ../qml/views/CurrentPlaylistView.qml:21
+msgid "Clear"
+msgstr "Löschen"
+
+#: ../qml/views/CurrentPlaylistView.qml:37
+msgid "Save ..."
+msgstr "Sichern ..."
+
+#: ../qml/views/CurrentPlaylistView.qml:121
+msgid "Overwrite playlist: "
+msgstr "Playlist überschreiben: "
+
+#: ../qml/views/CurrentPlaylistView.qml:122
+msgid "Are you sure that you want to overrite?"
+msgstr "Sind Sie sicher, dass sie die Playlist überschreiben wollen"
+
+#: ../qml/views/CurrentPlaylistView.qml:124
+msgid "Overwrite"
+msgstr "Überschreiben"
+
+#: ../qml/views/CurrentPlaylistView.qml:153
+msgid "Clear playlist"
+msgstr "Playlist Leeren"
+
+#: ../qml/views/CurrentPlaylistView.qml:154
+msgid "There are unsaved changes, clear anyway?"
+msgstr "Es gibt ungesicherte Änderungen, trotzdem leeren?"
+
+#: ../qml/views/CurrentPlaylistView.qml:156
+msgid "Yes"
+msgstr "Ja"
+
+#: ../qml/views/CurrentPlaylistView.qml:164
+msgid "No"
+msgstr "Nein"
+
+#: ../qml/views/CurrentPlaylistView.qml:175
+msgid "Save playlist"
+msgstr "Playlist speichern"
+
+#: ../qml/views/CurrentPlaylistView.qml:179
+msgid "enter playlist name"
+msgstr "Name für Playlist eingeben"
+
+#: ../qml/views/CurrentPlaylistView.qml:184
+msgid "Save"
+msgstr "Sicheren"
+
+#: ../qml/views/SettingsView.qml:8
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../qml/views/SettingsView.qml:62
+msgid "Server:"
+msgstr "Server:"
+
+#: ../qml/views/SettingsView.qml:72
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: ../qml/views/SettingsView.qml:81
+msgid "Password:"
+msgstr "Passwort:"
+
+#: ../qml/views/SongsView.qml:9
+msgid "Songs"
+msgstr "Lieder"
+
+#: ../qml/views/SongsView.qml:54
+msgid "search for song or artist name"
+msgstr "Nach Lied oder Künstler suchen"
+
+#: ../qml/views/WelcomeView.qml:28
+msgid "Welcome to uSonic"
+msgstr "Willkommen bei uSonic"
+
+#: ../qml/views/WelcomeView.qml:33
+msgid "uSonic is the first native client to the Subsonic music server."
+msgstr "uSonic ist der erste native Client für den Subsonic Musik Server"
+
+#: uSonic.desktop.in.h:1
+msgid "uSonic"
+msgstr "uSonic"

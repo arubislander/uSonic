@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-16 19:16+0000\n"
+"POT-Creation-Date: 2019-12-18 19:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,28 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/AppResources.qml:27
-msgid "Current Playlist"
+#: ../qml/views/SettingsView.qml:8
+msgid "Settings"
 msgstr ""
 
-#: ../qml/AppResources.qml:38 ../qml/views/PlaylistsView.qml:12
-msgid "Playlists"
+#: ../qml/views/SettingsView.qml:62
+msgid "Server:"
 msgstr ""
 
-#: ../qml/AppResources.qml:50
-msgid "Favourite Albums"
+#: ../qml/views/SettingsView.qml:72
+msgid "Username:"
 msgstr ""
 
-#: ../qml/AppResources.qml:66
-msgid "Newest Albums"
+#: ../qml/views/SettingsView.qml:81
+msgid "Password:"
 msgstr ""
 
-#: ../qml/AppResources.qml:81
-msgid "Random Albums"
+#: ../qml/views/WelcomeView.qml:28
+msgid "Welcome to uSonic"
 msgstr ""
 
-#: ../qml/AppResources.qml:96
-msgid "Recent Albums"
-msgstr ""
-
-#: ../qml/views/AlbumView.qml:18
-msgid "Back"
+#: ../qml/views/WelcomeView.qml:33
+msgid "uSonic is the first native client to the Subsonic music server."
 msgstr ""
 
 #: ../qml/views/AlbumsView.qml:10
@@ -76,6 +72,10 @@ msgstr ""
 
 #: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
 msgid "tracks"
+msgstr ""
+
+#: ../qml/views/AlbumView.qml:18
+msgid "Back"
 msgstr ""
 
 #: ../qml/views/CurrentPlaylistView.qml:21
@@ -126,22 +126,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../qml/views/SettingsView.qml:8
-msgid "Settings"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:62
-msgid "Server:"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:72
-msgid "Username:"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:81
-msgid "Password:"
-msgstr ""
-
 #: ../qml/views/SongsView.qml:9
 msgid "Songs"
 msgstr ""
@@ -150,12 +134,28 @@ msgstr ""
 msgid "search for song or artist name"
 msgstr ""
 
-#: ../qml/views/WelcomeView.qml:28
-msgid "Welcome to uSonic"
+#: ../qml/views/PlaylistsView.qml:12 ../qml/AppResources.qml:38
+msgid "Playlists"
 msgstr ""
 
-#: ../qml/views/WelcomeView.qml:33
-msgid "uSonic is the first native client to the Subsonic music server."
+#: ../qml/AppResources.qml:27
+msgid "Current Playlist"
+msgstr ""
+
+#: ../qml/AppResources.qml:50
+msgid "Favourite Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:66
+msgid "Newest Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:81
+msgid "Random Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:96
+msgid "Recent Albums"
 msgstr ""
 
 #: uSonic.desktop.in.h:1
