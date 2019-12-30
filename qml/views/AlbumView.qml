@@ -43,11 +43,13 @@ ViewBase {
         model: XmlListModel {
             namespaceDeclarations: "declare default element namespace 'http://subsonic.org/restapi';"
             query: "//album/song"
+            XmlRole { name: "path"; query: "@path/string()"}
             XmlRole { name: "songId"; query: "@id/string()" }
             XmlRole { name: "title"; query: "@title/string()" }
             XmlRole { name: "album"; query: "@album/string()" }
             XmlRole { name: "artist"; query: "@artist/string()" }
             XmlRole { name: "coverArt"; query: "@coverArt/string()" }
+            XmlRole { name: "track"; query: "@track/string()"}
         }
 
         delegate: ListItem {
@@ -55,7 +57,7 @@ ViewBase {
                     (divider.visible?divider.height:0)
             ListItemLayout {
                 id: layout
-                title.text: model.title
+                title.text: (model.track == "") ? model.title : "#" + model.track + " " + model.title;
                 subtitle.text: model.artist
                 summary.text: model.album
                 UbuntuShape {
