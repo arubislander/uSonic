@@ -45,6 +45,7 @@ ViewBase{
             XmlRole { name: "comment"; query: "@comment/string()" }
             XmlRole { name: "songCount"; query: "@songCount/string()" }
             XmlRole { name: "coverArt"; query: "@coverArt/string()" }
+            XmlRole { name: "track"; query: "@track/string()"}
         }
 
         // let refresh control know when the refresh gets completed
@@ -72,14 +73,14 @@ ViewBase{
                     (model.songCount === "1"? i18n.tr("track") : i18n.tr("tracks"))
 
                 onClicked: {
-                appResources.currentPlaylist   = model.name;
-                appResources.currentPlaylistId = model.playlistId;
-                appResources.dirty = false;
-                appResources.itemsView.query = "//playlist/entry"
-                appResources.itemsView.source =
+                    appResources.currentPlaylist   = model.name;
+                    appResources.currentPlaylistId = model.playlistId;
+                    appResources.dirty = false;
+                    appResources.itemsView.query = "//playlist/entry"
+                    appResources.itemsView.source =
                         appResources.getPlaylistUrl(model.playlistId);
 
-                loader.setSource(Qt.resolvedUrl("CurrentPlaylistView.qml"))
+                    loader.setSource(Qt.resolvedUrl("CurrentPlaylistView.qml"))
                 }
             }
         }

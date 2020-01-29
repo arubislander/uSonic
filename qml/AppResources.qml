@@ -148,6 +148,7 @@ Object {
         XmlRole { name: "album"; query: "@album/string()" }
         XmlRole { name: "artist"; query: "@artist/string()" }
         XmlRole { name: "coverArt"; query: "@coverArt/string()" }
+        XmlRole { name: "track"; query: "@track/string()"}
 
         onStatusChanged: {
             if (itemsView.status == XmlListModel.Ready) {
@@ -180,6 +181,7 @@ Object {
            "songId" : model.songId,
            "playlistIndex": res.playlist.itemCount,
            "title":model.title,
+           "track":model.track,
            "album":model.album,
            "artist":model.artist,
            "coverArt":coverart});
