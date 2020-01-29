@@ -1,6 +1,22 @@
-build_xenial:
+build:
   image: clickable/ci-16.04-armhf
+  except:
+    - tags
   script:
-  - clickable clean build click-build review publish
+    - clickable clean build click-build
+  artifacts:
+    paths:
+      - build/*.click
+    expire_in: 1 week
+
+publish:
+  image: clickable/ci-16.04-armhf
   only:
-  - tags
+    - tags
+  script:
+    - clickable clean build click-build
+    - clickable publish "$CI_COMMIT_MESSAGE"
+  artifacts:
+    paths:
+      - build/*.click
+    expire_in: 1 week
