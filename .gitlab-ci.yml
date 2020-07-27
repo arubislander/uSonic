@@ -30,7 +30,7 @@ build64:
     - clickable --output ./build64 clean build
   artifacts:
     paths:
-      - build/*.click
+      - build64/*.click
     expire_in: 1 week
 
 publish64:
