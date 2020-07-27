@@ -42,5 +42,5 @@ publish64:
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
-      - build/*.click
+      - build64/*.click
     expire_in: 1 week
