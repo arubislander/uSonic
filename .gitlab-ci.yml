@@ -9,19 +9,6 @@ build:
       - build/*.click
     expire_in: 1 week
 
-publish:
-  image: clickable/ci-16.04-armhf
-  only:
-    - tags
-  script:
-    - clickable --output ./build clean build
-    - clickable publish --api-key $OPENSTORE_API_KEY "$CI_COMMIT_MESSAGE"
-  artifacts:
-    paths:
-      - build/*.click
-    expire_in: 1 week
-
-
 build64:
   image: clickable/ci-16.04-arm64
   except:
@@ -33,13 +20,25 @@ build64:
       - build64/*.click
     expire_in: 1 week
 
+publish:
+  image: clickable/ci-16.04-armhf
+  only:
+    - tags
+  script:
+    - clickable --output ./build clean build
+    - clickable publish "$CI_COMMIT_MESSAGE"
+  artifacts:
+    paths:
+      - build/*.click
+    expire_in: 1 week
+
 publish64:
   image: clickable/ci-16.04-arm64
   only:
     - tags
   script:
     - clickable --output ./build64 clean build
-    - clickable publish --api-key $OPENSTORE_API_KEY "$CI_COMMIT_MESSAGE"
+    - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
       - build64/*.click
