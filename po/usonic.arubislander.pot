@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-16 19:16+0000\n"
+"POT-Creation-Date: 2020-07-27 19:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,34 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../qml/AppResources.qml:27
-msgid "Current Playlist"
-msgstr ""
-
-#: ../qml/AppResources.qml:38 ../qml/views/PlaylistsView.qml:12
-msgid "Playlists"
-msgstr ""
-
-#: ../qml/AppResources.qml:50
-msgid "Favourite Albums"
-msgstr ""
-
-#: ../qml/AppResources.qml:66
-msgid "Newest Albums"
-msgstr ""
-
-#: ../qml/AppResources.qml:81
-msgid "Random Albums"
-msgstr ""
-
-#: ../qml/AppResources.qml:96
-msgid "Recent Albums"
-msgstr ""
-
-#: ../qml/views/AlbumView.qml:18
-msgid "Back"
-msgstr ""
 
 #: ../qml/views/AlbumsView.qml:10
 msgid "Albums"
@@ -53,8 +25,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../qml/views/AlbumsView.qml:32 ../qml/views/CurrentPlaylistView.qml:142
-#: ../qml/views/CurrentPlaylistView.qml:210 ../qml/views/SongsView.qml:31
+#: ../qml/views/AlbumsView.qml:32 ../qml/views/SongsView.qml:31
+#: ../qml/views/CurrentPlaylistView.qml:143
+#: ../qml/views/CurrentPlaylistView.qml:211
 msgid "Cancel"
 msgstr ""
 
@@ -70,60 +43,12 @@ msgstr ""
 msgid "Play album"
 msgstr ""
 
-#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:73
 msgid "track"
 msgstr ""
 
-#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:72
+#: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:73
 msgid "tracks"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:21
-msgid "Clear"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:37
-msgid "Save ..."
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:121
-msgid "Overwrite playlist: "
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:122
-msgid "Are you sure that you want to overrite?"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:124
-msgid "Overwrite"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:153
-msgid "Clear playlist"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:154
-msgid "There are unsaved changes, clear anyway?"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:156
-msgid "Yes"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:164
-msgid "No"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:175
-msgid "Save playlist"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:179
-msgid "enter playlist name"
-msgstr ""
-
-#: ../qml/views/CurrentPlaylistView.qml:184
-msgid "Save"
 msgstr ""
 
 #: ../qml/views/SettingsView.qml:8
@@ -142,6 +67,18 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
+#: ../qml/views/SettingsView.qml:132
+msgid "Test"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:141
+msgid "Apply"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:151
+msgid "Revert"
+msgstr ""
+
 #: ../qml/views/SongsView.qml:9
 msgid "Songs"
 msgstr ""
@@ -156,6 +93,82 @@ msgstr ""
 
 #: ../qml/views/WelcomeView.qml:33
 msgid "uSonic is the first native client to the Subsonic music server."
+msgstr ""
+
+#: ../qml/views/AlbumView.qml:18
+msgid "Back"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:21
+msgid "Clear"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:37
+msgid "Save ..."
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:122
+msgid "Overwrite playlist: "
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:123
+msgid "Are you sure that you want to overrite?"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:125
+msgid "Overwrite"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:154
+msgid "Clear playlist"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:155
+msgid "There are unsaved changes, clear anyway?"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:157
+msgid "Yes"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:165
+msgid "No"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:176
+msgid "Save playlist"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:180
+msgid "enter playlist name"
+msgstr ""
+
+#: ../qml/views/CurrentPlaylistView.qml:185
+msgid "Save"
+msgstr ""
+
+#: ../qml/views/PlaylistsView.qml:12 ../qml/AppResources.qml:38
+msgid "Playlists"
+msgstr ""
+
+#: ../qml/AppResources.qml:27
+msgid "Current Playlist"
+msgstr ""
+
+#: ../qml/AppResources.qml:50
+msgid "Favourite Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:66
+msgid "Newest Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:81
+msgid "Random Albums"
+msgstr ""
+
+#: ../qml/AppResources.qml:96
+msgid "Recent Albums"
 msgstr ""
 
 #: uSonic.desktop.in.h:1

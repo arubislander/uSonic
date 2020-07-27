@@ -129,7 +129,7 @@ ViewBase {
             Action {
                 id: pingAction
                 name: "pingAction"
-                text: "Test"
+                text: i18n.tr("Test")
                 onTriggered: {
                     appResources.client.password = txtPassword.text
                     appResources.client.ping()
@@ -138,7 +138,7 @@ ViewBase {
             Action {
                 id: saveAction
                 name: "saveAction"
-                text: "Apply"
+                text: i18n.tr("Apply")
                 onTriggered: {
                     appResources.client.applySettings(txtServer.text,
                                              txtUsername.text,
@@ -148,7 +148,7 @@ ViewBase {
             Action {
                 id: cancelAction
                 name: "cancelAction"
-                text: "Revert"
+                text: i18n.tr("Revert")
                 onTriggered: {
                     appResources.client.revertSettings()
                     txtServer.text = appResources.client.settings.account.contents.server
