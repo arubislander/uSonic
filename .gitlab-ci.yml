@@ -15,7 +15,7 @@ publish:
     - tags
   script:
     - clickable --output ./build clean build
-    - clickable publish "$CI_COMMIT_MESSAGE"
+    - clickable publish --api-key $OPENSTORE_API_KEY "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
       - build/*.click
@@ -39,7 +39,7 @@ publish64:
     - tags
   script:
     - clickable --output ./build64 clean build
-    - clickable publish "$CI_COMMIT_MESSAGE"
+    - clickable publish --api-key $OPENSTORE_API_KEY "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
       - build64/*.click
