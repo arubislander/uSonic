@@ -76,7 +76,7 @@ ViewBase {
             ListItemLayout {
                 id: layout
                 //title.text: model.title
-                title.text: (model.track == "") ? model.title : "#" + model.track + " " + model.title;
+                title.text: (model.track == "" || model.track == undefined) ? model.title : "#" + model.track + " " + model.title;
                 subtitle.text: model.album
                 summary.text: model.artist
                 UbuntuShape {
