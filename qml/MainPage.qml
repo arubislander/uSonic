@@ -111,7 +111,8 @@ Page {
                 action: modelData
                 height: footer.height
                 width: modelData.enabled ? footer.width/6 - units.gu(0.5) : footer.width/5 - units.gu(1)
-                color: modelData.selected ? UbuntuColors.lightGrey : UbuntuColors.porcelain
+                //textColor: modelData.selected ? theme.palette.foreground.selected : theme.palette.foreground.base
+                color: modelData.selected ? theme.palette.normal.selection: theme.palette.normal.background //UbuntuColors.lightGrey : UbuntuColors.porcelain
                 //strokeColor: UbuntuColors.porcelain
             }
         }

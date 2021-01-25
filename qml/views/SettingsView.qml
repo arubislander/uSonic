@@ -93,19 +93,18 @@ ViewBase {
 
             Button {
                 id: btnCancel
-                //color: UbuntuColors.green
                 action: cancelAction
             }
 
             Button {
                 id: btnPing
-                strokeColor: UbuntuColors.warmGrey
+                //strokeColor: UbuntuColors.warmGrey
                 action: pingAction
             }
 
             Button {
                 id: btnSave
-                //strokeColor: UbuntuColors.warmGrey
+                color: theme.palette.normal.positive
                 action: saveAction
             }
         }
@@ -113,7 +112,7 @@ ViewBase {
         Rectangle {
             width: parent.width
             height: units.gu(5)
-            color: UbuntuColors.warmGrey
+            color: theme.palette.normal.base
             radius: units.gu(1)
             TextArea {
                 id: txtArea
