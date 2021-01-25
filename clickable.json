@@ -1,4 +1,5 @@
 {
+  "framework" : "ubuntu-sdk-16.04",
   "builder": "cmake",
   "kill": "qmlscene"
 }
