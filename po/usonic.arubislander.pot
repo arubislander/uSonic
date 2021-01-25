@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-25 20:33+0000\n"
+"POT-Creation-Date: 2021-01-25 21:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,15 +139,15 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#: ../qml/views/SettingsView.qml:132
+#: ../qml/views/SettingsView.qml:131
 msgid "Test"
 msgstr ""
 
-#: ../qml/views/SettingsView.qml:141
+#: ../qml/views/SettingsView.qml:140
 msgid "Apply"
 msgstr ""
 
-#: ../qml/views/SettingsView.qml:151
+#: ../qml/views/SettingsView.qml:150
 msgid "Revert"
 msgstr ""
 
