@@ -7,7 +7,7 @@ import "utils.js" as Utils
 import "usonic.js" as UsonicJS
 
 
-Object {
+Item {
     id: res
 
     property string currentAlbumId

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: usonic.arubislander\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-27 19:52+0000\n"
+"POT-Creation-Date: 2021-01-25 20:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,34 +49,6 @@ msgstr ""
 
 #: ../qml/views/AlbumsView.qml:135 ../qml/views/PlaylistsView.qml:73
 msgid "tracks"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:8
-msgid "Settings"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:62
-msgid "Server:"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:72
-msgid "Username:"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:81
-msgid "Password:"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:132
-msgid "Test"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:141
-msgid "Apply"
-msgstr ""
-
-#: ../qml/views/SettingsView.qml:151
-msgid "Revert"
 msgstr ""
 
 #: ../qml/views/SongsView.qml:9
@@ -149,6 +121,34 @@ msgstr ""
 
 #: ../qml/views/PlaylistsView.qml:12 ../qml/AppResources.qml:38
 msgid "Playlists"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:8
+msgid "Settings"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:62
+msgid "Server:"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:72
+msgid "Username:"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:81
+msgid "Password:"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:132
+msgid "Test"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:141
+msgid "Apply"
+msgstr ""
+
+#: ../qml/views/SettingsView.qml:151
+msgid "Revert"
 msgstr ""
 
 #: ../qml/AppResources.qml:27
