@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "clickable desktop",
+            "label": "clickable desktop (ambient)",
             "type": "shell",
             "command": "clickable",
             "args": [
@@ -17,13 +17,23 @@
             "problemMatcher": []
         },
         {
-            "label": "clickable device",
+            "label": "clickable desktop (suru dark)",
             "type": "shell",
-            "command": "clickable && clickable logs",
+            "command": "clickable",
+            "args": [
+                "--dark-mode", "desktop"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "problemMatcher": []
+        },
+        {
+            "label": "clickable device",
+            "type": "shell",
+            "command": "clickable && clickable logs",
+            "group": "build",
             "problemMatcher": []
         }
     ]
