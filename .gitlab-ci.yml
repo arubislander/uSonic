@@ -1,45 +1,69 @@
-build:
+build_armhf:
   image: clickable/ci-16.04-armhf
   except:
     - tags
   script:
-    - clickable --output ./build clean build
+    - clickable --output ./build_armhf clean build
   artifacts:
     paths:
-      - build/*.click
-    expire_in: 1 week
+      - build_armhf/*.click
+    expire_in: 1 hour
 
-build64:
+build_arm64:
   image: clickable/ci-16.04-arm64
   except:
     - tags
   script:
-    - clickable --output ./build64 clean build
+    - clickable --output ./build_arm64 clean build
   artifacts:
     paths:
-      - build64/*.click
-    expire_in: 1 week
+      - build_arm64/*.click
+    expire_in: 1 hour
 
-publish:
+build_amd64:
+  image: clickable/ci-16.04-amd64
+  except:
+    - tags
+  script:
+    - clickable --output ./build_amd64 clean build
+  artifacts:
+    paths:
+      - build_amd64/*.click
+    expire_in: 1 hour
+
+
+publish_armhf:
   image: clickable/ci-16.04-armhf
   only:
     - tags
   script:
-    - clickable --output ./build clean build
+    - clickable --output ./build_armhf clean build
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
-      - build/*.click
+      - build_armhf/*.click
     expire_in: 1 week
 
-publish64:
+publish_arm64:
   image: clickable/ci-16.04-arm64
   only:
     - tags
   script:
-    - clickable --output ./build64 clean build
+    - clickable --output ./build_arm64 clean build
     - clickable publish "$CI_COMMIT_MESSAGE"
   artifacts:
     paths:
-      - build64/*.click
+      - build_arm64/*.click
+    expire_in: 1 week
+
+publish_amd64:
+  image: clickable/ci-16.04-amd64
+  only:
+    - tags
+  script:
+    - clickable --output ./build_amd64 clean build
+    - clickable publish "$CI_COMMIT_MESSAGE"
+  artifacts:
+    paths:
+      - build_amd64/*.click
     expire_in: 1 week
