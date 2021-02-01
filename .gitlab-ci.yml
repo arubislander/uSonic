@@ -7,7 +7,7 @@ build_armhf:
   artifacts:
     paths:
       - build_armhf/*.click
-    expire_in: 1 week
+    expire_in: 1 hour
 
 build_arm64:
   image: clickable/ci-16.04-arm64
@@ -18,7 +18,7 @@ build_arm64:
   artifacts:
     paths:
       - build_arm64/*.click
-    expire_in: 1 week
+    expire_in: 1 hour
 
 build_amd64:
   image: clickable/ci-16.04-amd64
@@ -29,7 +29,7 @@ build_amd64:
   artifacts:
     paths:
       - build_amd64/*.click
-    expire_in: 1 week
+    expire_in: 1 hour
 
 
 publish_armhf:
