@@ -9,7 +9,7 @@
             "desktop":  "uSonic.desktop"
         }
     },
-    "version": "0.7.5",
+    "version": "0.7.6",
     "maintainer": "Terence Sambo <arubislander@zonnet.nl>",
     "framework" : "ubuntu-sdk-16.04"
 }
