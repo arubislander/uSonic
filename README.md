@@ -18,5 +18,5 @@ to run build and run uSonic on the desktop. The app will run in a docker contain
 
 To test the app on your device, connect it to your computer and do
 ```
-$clickable
+$ clickable
 ```
